@@ -1,0 +1,37 @@
+.section-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 120px 5% 60px;
+  width: 90%;
+  text-align: center;
+  min-height: calc(100vh - 180px);
+}
+
+.section-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 3em;
+  color: #e94560;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 40px;
+  text-shadow: 0 0 10px rgba(233, 69, 96, 0.5);
+}
+
+.section-content {
+  max-width: 900px;
+  width: 100%;
+  color: #c0c0c0;
+  font-size: 1.2em;
+  line-height: 1.7;
+}
+
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 2.2em;
+  }
+  .section-content {
+    font-size: 1em;
+  }
+}

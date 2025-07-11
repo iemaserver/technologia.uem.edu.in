@@ -1,72 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
 
+
+body {
+  color: #e0e0e0;
+  font-family: 'Inter', sans-serif; /* Using Inter for body text for readability */
+  margin: 0;
+  padding: 0;
+  /* The background color is now handled by the InteractiveBackground component */
+}
+
+/* Hide the default system cursor */
 * {
   cursor: none;
 }
 
-body {
-  /* background-color: #1a1a2e; */
-  color: #e0e0e0;
-  font-family: 'Orbitron', sans-serif;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  text-align: center;
-}
+/* The App-body no longer needs specific padding or text styles,
+   as the new Section component handles its own styling. */
 
-.App-header {
-  background-color: #16213e;
-  padding: 20px;
-  border-bottom: 2px solid #0f3460;
-  width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1000;
-}
-
-.App-header h1 {
-  margin: 0;
-  font-size: 2.5em;
-  color: #e94560;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-}
-
-.App-header p {
-  margin: 5px 0 0;
-  font-size: 1.2em;
-  color: #c0c0c0;
-}
-
-.App-body {
-  padding-top: 150px; /* Adjust based on header height */
-}
-
-.App-body h2 {
-  font-size: 3em;
-  color: #e94560;
-}
-
-.App-body p {
-  font-size: 1.2em;
-  color: #c0c0c0;
-}
-
-.App-body {
-  /* Adjust this padding to push content below the fixed header */
-  padding-top: 120px; 
-}
-
-.App-body h2 {
-  font-size: 3em;
-  color: #e94560;
-}
-
-.App-body p {
-  font-size: 1.2em;
-  color: #c0c0c0;
-}

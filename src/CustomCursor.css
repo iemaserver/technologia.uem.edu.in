@@ -1,38 +1,36 @@
-/* Styles for the custom cursor */
-
-/* Outer trailing circle */
-.cursor {
-  width: 40px;
-  height: 40px;
-  border: 2px solid #e94560; /* Theme color */
-  border-radius: 50%;
-  position: fixed;
-  transform: translate(-50%, -50%);
-  pointer-events: none; /* Allows clicking through the element */
-  z-index: 9999;
-  transition: width 0.3s, height 0.3s, border-width 0.3s, opacity 0.3s;
-  opacity: 0.7;
-}
-
-/* Inner dot */
-.dot {
-  width: 8px;
-  height: 8px;
-  background-color: #e94560; /* Theme color */
-  border-radius: 50%;
+.cursor, .dot {
   position: fixed;
   transform: translate(-50%, -50%);
   pointer-events: none;
   z-index: 9999;
-  transition: transform 0.2s;
+  border-radius: 50%;
+  opacity: 0; 
+  transition: width 0.3s, height 0.3s, border-width 0.3s, opacity 0.3s, transform 0.1s linear;
 }
 
-/* Styles for when hovering over interactive elements */
+
+.cursor.visible, .dot.visible {
+  opacity: 1;
+}
+
+
+.cursor {
+  width: 40px;
+  height: 40px;
+  border: 2px solid #e94560;
+}
+
+
+.dot {
+  width: 8px;
+  height: 8px;
+  background-color: #e94560;
+}
+
 .cursor.hover {
   width: 60px;
   height: 60px;
   border-width: 3px;
-  opacity: 1;
 }
 
 .dot.hover {

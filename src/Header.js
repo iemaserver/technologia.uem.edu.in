@@ -1,35 +1,50 @@
 import React, { useState } from 'react';
 import { FiMenu, FiX } from 'react-icons/fi';
 import './Header.css';
-import logo from './logo.png'; 
+import logo from './assets/logo.png';
 
-const Header = () => {
+
+const Header = ({ activeScreen, setActiveScreen }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
+  const handleNavClick = (screen) => {
+    setActiveScreen(screen);
+    setIsMenuOpen(false); 
   };
 
   return (
     <header className="app-header">
-      {/* Logo Section */}
-      <div className="header-logo">
-        {/* Use the imported logo variable in the src attribute */}
+      
+      <div className="header-logo" onClick={() => handleNavClick('home')}>
         <img src={logo} alt="Technologia Logo" />
       </div>
 
-      {/* Centered Title - hidden on mobile to make space */}
-      <h1 className="header-title">Technologia</h1>
+      <h1 className="header-title" onClick={() => handleNavClick('home')}>
+        Technologiaaa
+      </h1>
 
-      {/* Navigation Section */}
       <nav className="header-nav">
-        <div className="nav-menu-icon" onClick={toggleMenu}>
+        <div 
+          className={`nav-menu-icon ${isMenuOpen ? 'menu-is-open' : ''}`} 
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+        >
           {isMenuOpen ? <FiX size={30} /> : <FiMenu size={30} />}
         </div>
+       
         <ul className={isMenuOpen ? 'nav-links active' : 'nav-links'}>
-          <li><a href="#register" onClick={() => setIsMenuOpen(false)}>Register</a></li>
-          <li><a href="#about" onClick={() => setIsMenuOpen(false)}>About</a></li>
-          <li><a href="#schedule" onClick={() => setIsMenuOpen(false)}>Schedule</a></li>
+          
+          <li>
+            <button onClick={() => handleNavClick('home')}>Home</button>
+          </li>
+          <li>
+            <button onClick={() => handleNavClick('register')}>Register</button>
+          </li>
+          <li>
+            <button onClick={() => handleNavClick('about')}>About</button>
+          </li>
+          <li>
+            <button onClick={() => handleNavClick('schedule')}>Schedule</button>
+          </li>
         </ul>
       </nav>
     </header>

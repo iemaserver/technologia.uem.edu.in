@@ -1,33 +1,50 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState} from 'react';
 import Header from './Header';
 import InteractiveBackground from './InteractiveBackground';
 import CustomCursor from './CustomCursor';
 import Loader from './Loader';
+import Home from './Home'; 
+import About from './About';
+import Register from './Register';
+import Schedule from './Schedule';
 import './App.css';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
+  
+  const [activeScreen, setActiveScreen] = useState('home');
 
-  // This function will be passed to the Loader component
-  // and called when its exit animation is finished.
   const handleLoadingComplete = () => {
     setIsLoading(false);
+  };
+
+  
+  const renderScreen = () => {
+    switch (activeScreen) {
+      case 'about':
+        return <About />;
+      case 'register':
+        return <Register />;
+      case 'schedule':
+        return <Schedule />;
+      case 'home':
+      default:
+        return <Home />;
+    }
   };
 
   return (
     <div className="App">
       {isLoading ? (
-        // The Loader now controls its own duration and tells App when it's done.
         <Loader onLoaded={handleLoadingComplete} />
       ) : (
-        // Show the main site content
         <>
           <CustomCursor />
           <InteractiveBackground />
-          <Header />
+         
+          <Header activeScreen={activeScreen} setActiveScreen={setActiveScreen} />
           <main className="App-body">
-            <h2>Coming Soon</h2>
-            <p>Our team is working hard to bring you an amazing hackathon experience. Stay tuned!</p>
+            {renderScreen()}
           </main>
         </>
       )}

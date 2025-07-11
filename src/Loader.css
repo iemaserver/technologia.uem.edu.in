@@ -1,4 +1,3 @@
-/* Overall loader container */
 .loader-container {
   display: flex;
   flex-direction: column;
@@ -18,7 +17,6 @@
   visibility: visible;
 }
 
-/* Final exit animation */
 .loader-container.exiting {
   animation: exitFade 0.8s forwards;
 }
@@ -30,17 +28,16 @@
   }
 }
 
-/* Stage for the animation elements */
+
 .animation-stage {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 200px; /* Give the stage a fixed height */
+  height: 200px;
   position: relative;
   width: 500px;
 }
 
-/* Base styles for all loader images and signs */
 .loader-image, .plus-sign {
   opacity: 0;
   position: absolute;
@@ -62,18 +59,18 @@
 
 /* --- Animation Phase Styling --- */
 
-/* Initial state for images 1 and 2 */
+
 .loader-image.one { transform: translateX(-150px); }
 .loader-image.two { transform: translateX(150px); }
 
-/* Phase 1: Image 1 appears */
+
 .loader-image.one.visible {
   opacity: 1;
   transform: translateX(-100px);
   transition: opacity 0.4s, transform 0.5s ease-out;
 }
 
-/* Phase 2: Plus sign and Image 2 appear */
+
 .plus-sign.visible,
 .loader-image.two.visible {
   opacity: 1;
@@ -83,7 +80,7 @@
   transition: opacity 0.4s, transform 0.5s ease-out;
 }
 
-/* Phase 3: Images 1 & 2 and plus sign combine */
+
 .loader-image.one.combine,
 .loader-image.two.combine,
 .plus-sign.combine {
@@ -105,7 +102,7 @@
   to { opacity: 0; }
 }
 
-/* Phase 4: Result image appears with a pop */
+
 .loader-image.three.visible {
   opacity: 1;
   animation: pop-in 0.6s ease-out forwards;
@@ -117,7 +114,7 @@
   100% { transform: scale(1); opacity: 1; }
 }
 
-/* Text styling */
+
 .loader-text {
   margin-top: 30px;
   font-size: 1.5rem;
