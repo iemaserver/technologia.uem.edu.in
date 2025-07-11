@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/technologia/static/css/main.56a882f6.css",
-    "main.js": "/technologia/static/js/main.269dcf39.js",
+    "main.css": "/technologia/static/css/main.f4bf489f.css",
+    "main.js": "/technologia/static/js/main.6a9a9780.js",
     "static/js/453.24963872.chunk.js": "/technologia/static/js/453.24963872.chunk.js",
-    "static/media/logo.png": "/technologia/static/media/logo.23f617b9f5f030aa61b2.png",
     "static/media/loader3.png": "/technologia/static/media/loader3.e41cf3d83218f0300c45.png",
+    "static/media/logo.png": "/technologia/static/media/logo.8d6f574e39764f632a1d.png",
     "static/media/loader2.png": "/technologia/static/media/loader2.61b9abb52a87833a3873.png",
     "static/media/loader1.png": "/technologia/static/media/loader1.b1e501b01b2a7818214c.png",
     "index.html": "/technologia/index.html",
-    "main.56a882f6.css.map": "/technologia/static/css/main.56a882f6.css.map",
-    "main.269dcf39.js.map": "/technologia/static/js/main.269dcf39.js.map",
+    "main.f4bf489f.css.map": "/technologia/static/css/main.f4bf489f.css.map",
+    "main.6a9a9780.js.map": "/technologia/static/js/main.6a9a9780.js.map",
     "453.24963872.chunk.js.map": "/technologia/static/js/453.24963872.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.56a882f6.css",
-    "static/js/main.269dcf39.js"
+    "static/css/main.f4bf489f.css",
+    "static/js/main.6a9a9780.js"
   ]
 }
