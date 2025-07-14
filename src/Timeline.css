@@ -1,0 +1,129 @@
+/* Wrapper for the vertical timeline */
+.timeline-wrapper {
+  width: 100%;
+  max-width: 1000px; /* Increased max-width for desktop */
+  margin: 0 auto;
+  padding: 40px 0;
+}
+
+/* The main container for the timeline items */
+.timeline-container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* The vertical axis line */
+.timeline-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 4px;
+  background-color: rgba(233, 69, 96, 0.4);
+  /* --- MOBILE FIRST --- */
+  left: 20px; /* Default position for mobile */
+  transform: translateX(-50%);
+}
+
+/* Individual timeline event item */
+.timeline-item {
+  position: relative;
+  width: 100%;
+  /* --- MOBILE FIRST --- */
+  padding: 20px 0 20px 50px; /* Default padding for mobile */
+  box-sizing: border-box;
+}
+
+/* The node on the central axis */
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 20px;
+  height: 20px;
+  background-color: #16213e;
+  border: 4px solid rgba(233, 69, 96, 0.6);
+  border-radius: 50%;
+  z-index: 1;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  /* --- MOBILE FIRST --- */
+  left: 20px; /* Default position for mobile */
+  transform: translate(-50%, -50%); /* This correctly centers the circle on the line */
+}
+
+.timeline-item:hover::before {
+  background-color: #e94560;
+  border-color: #fff;
+}
+
+/* The content card for each event */
+.timeline-content {
+  background-color: rgba(22, 33, 62, 0.7);
+  border: 1px solid rgba(233, 69, 96, 0.3);
+  backdrop-filter: blur(8px);
+  padding: 20px;
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  text-align: left;
+}
+
+.timeline-item:hover .timeline-content {
+  border-color: rgba(233, 69, 96, 0.8);
+  box-shadow: 0 10px 30px rgba(233, 69, 96, 0.4);
+}
+
+/* Styling for the content inside the cards */
+.event-date {
+  font-size: 0.9em;
+  color: #e94560;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.event-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.3em;
+  color: #e0e0e0;
+  margin: 0 0 10px;
+}
+
+.event-description {
+  font-size: 0.9em;
+  color: #c0c0c0;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* --- DESKTOP STYLES: Alternating Timeline --- */
+@media (min-width: 769px) {
+  /* Center the line on desktop */
+  .timeline-container::before {
+    left: 50%;
+  }
+
+  /* Adjust item width and remove mobile padding */
+  .timeline-item {
+    width: 50%;
+    padding: 20px 40px;
+  }
+
+  /* Position the node on the edge of the item, aligned with the center line */
+  .timeline-item::before {
+    left: 100%;
+  }
+
+  /* Alternate items to the right side */
+  .timeline-item:nth-child(even) {
+    align-self: flex-end; /* Push the item to the right */
+  }
+
+  .timeline-item:nth-child(even)::before {
+    left: 0;
+  }
+  
+  .timeline-item:nth-child(even) .timeline-content {
+    text-align: left;
+  }
+}
