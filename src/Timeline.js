@@ -1,43 +1,19 @@
 import React from 'react';
 import Section from './Section';
-import './Timeline.css'; 
+import './Timeline.css';
 
 const timelineData = [
-  {
-    date: 'August 1, 2025',
-    title: 'Registration Opens',
-    description: 'The portal opens for all aspiring participants to register for the hackathon.',
-  },
-  {
-    date: 'August 15, 2025',
-    title: 'Opening Ceremony',
-    description: 'Kick-off event with keynote speakers and the official start of the hackathon.',
-  },
-  {
-    date: 'August 15, 2025',
-    title: 'Hacking Begins',
-    description: '8 hours of intense coding, designing, and building begins now!',
-  },
-  {
-    date: 'August 16, 2025',
-    title: 'Project Submissions',
-    description: 'Final deadline for all teams to submit their projects for judging.',
-  },
-  {
-    date: 'August 17, 2025',
-    title: 'Judging Period',
-    description: 'Our expert panel of judges will review all submitted projects.',
-  },
-  {
-    date: 'August 18, 2025',
-    title: 'Closing Ceremony & Winners Announcement',
-    description: 'Announcement of the winning teams and distribution of prizes.',
-  },
+  { date: 'Phase 1: The Gathering', title: 'Registration Opens', description: 'The call goes out across the networks. Assemble your guild and sign the pact to join the fray.' },
+  { date: 'Phase 2: The Awakening', title: 'Opening Ceremony', description: 'Ancient wisdom is shared by the High Council (our keynote speakers) as the tournament officially begins.' },
+  { date: 'Phase 3: The Crucible', title: 'Hacking Begins', description: 'For 8 hours, the digital ether crackles with power as you bend code to your will.' },
+  { date: 'Phase 4: The Offering', title: 'Project Submissions', description: 'Present your creations to the judges. The deadline is absolute; no extensions will be granted by the timekeepers.' },
+  { date: 'Phase 5: The Judgment', title: 'Judging Period', description: 'The Council deliberates, weighing the power, creativity, and execution of each artifact.' },
+  { date: 'Phase 6: The Ascension', title: 'Winners Announced', description: 'New legends are crowned, and victors claim their spoils and eternal glory.' },
 ];
 
 const Timeline = () => {
   return (
-    <Section id="timeline" title="Event Timeline">
+    <Section id="timeline" title="The Grand Quest: Schedule">
       <div className="timeline-wrapper">
         <div className="timeline-container">
           {timelineData.map((event, index) => (

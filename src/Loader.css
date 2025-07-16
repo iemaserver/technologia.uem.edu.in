@@ -1,3 +1,4 @@
+/* Overall loader container */
 .loader-container {
   display: flex;
   flex-direction: column;
@@ -13,22 +14,27 @@
   z-index: 9999;
   font-family: 'Orbitron', sans-serif;
   color: #e0e0e0;
-  opacity: 1;
-  visibility: visible;
+  /* GSAP will control opacity/visibility */
 }
 
-.loader-container.exiting {
-  animation: exitFade 0.8s forwards;
+/* --- Shockwave Effect --- */
+/* A pseudo-element for the shockwave, controlled by GSAP variables */
+.loader-container::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100px;
+    height: 100px;
+    background: transparent;
+    border-radius: 50%;
+    border: 3px solid #e94560;
+    transform: translate(-50%, -50%) scale(var(--shockwave-scale, 0));
+    opacity: var(--shockwave-opacity, 0);
+    will-change: transform, opacity;
 }
 
-@keyframes exitFade {
-  to {
-    opacity: 0;
-    visibility: hidden;
-  }
-}
-
-
+/* Stage for the animation elements */
 .animation-stage {
   display: flex;
   align-items: center;
@@ -38,11 +44,11 @@
   width: 500px;
 }
 
+/* Base styles for all loader images and signs */
 .loader-image, .plus-sign {
-  opacity: 0;
   position: absolute;
-  transition: opacity 0.4s ease-in-out;
-  will-change: transform, opacity;
+  /* GSAP will control visibility */
+  visibility: visible;
 }
 
 .loader-image {
@@ -57,81 +63,14 @@
   font-weight: bold;
 }
 
-/* --- Animation Phase Styling --- */
-
-
+/* Initial positions for the elements before GSAP animates them */
 .loader-image.one { transform: translateX(-150px); }
 .loader-image.two { transform: translateX(150px); }
 
-
-.loader-image.one.visible {
-  opacity: 1;
-  transform: translateX(-100px);
-  transition: opacity 0.4s, transform 0.5s ease-out;
-}
-
-
-.plus-sign.visible,
-.loader-image.two.visible {
-  opacity: 1;
-}
-.loader-image.two.visible {
-  transform: translateX(100px);
-  transition: opacity 0.4s, transform 0.5s ease-out;
-}
-
-
-.loader-image.one.combine,
-.loader-image.two.combine,
-.plus-sign.combine {
-  animation-duration: 0.8s;
-  animation-fill-mode: forwards;
-  animation-timing-function: ease-in;
-}
-.loader-image.one.combine { animation-name: combine-left; }
-.loader-image.two.combine { animation-name: combine-right; }
-.plus-sign.combine { animation-name: fade-out; }
-
-@keyframes combine-left {
-  to { transform: translateX(0); opacity: 0; }
-}
-@keyframes combine-right {
-  to { transform: translateX(0); opacity: 0; }
-}
-@keyframes fade-out {
-  to { opacity: 0; }
-}
-
-
-.loader-image.three.visible {
-  opacity: 1;
-  animation: pop-in 0.6s ease-out forwards;
-}
-
-@keyframes pop-in {
-  0% { transform: scale(0.5); opacity: 0; }
-  80% { transform: scale(1.1); }
-  100% { transform: scale(1); opacity: 1; }
-}
-
-
+/* Text styling */
 .loader-text {
   margin-top: 30px;
   font-size: 1.5rem;
   text-align: center;
   letter-spacing: 1px;
-  color: #e0e0e0;
-}
-
-.loader-text span {
-  opacity: 0;
-  animation: fadeDots 1.4s infinite;
-}
-.loader-text .dot-1 { animation-delay: 0s; }
-.loader-text .dot-2 { animation-delay: 0.4s; }
-.loader-text .dot-3 { animation-delay: 0.8s; }
-
-@keyframes fadeDots {
-  0%, 100% { opacity: 0; }
-  50% { opacity: 1; }
 }
