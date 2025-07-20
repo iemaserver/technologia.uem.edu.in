@@ -3,7 +3,7 @@
   background-color: #16213e;
   padding: 10px 4%;
   display: flex;
-  justify-content: space-between; /* Pushes left and right items to the edges */
+  justify-content: space-between;
   align-items: center;
   border-bottom: 2px solid #0f3460;
   width: 92%;
@@ -14,11 +14,11 @@
   height: 60px;
 }
 
-/* NEW: Wrapper for left-aligned items */
+/* Wrapper for left-aligned items */
 .header-left {
   display: flex;
   align-items: center;
-  gap: 20px; /* Space between logo and title */
+  gap: 15px; /* Adjust gap between logo, animation, and title */
 }
 
 /* Logo and Title Styling */
@@ -39,15 +39,12 @@
   object-fit: contain;
 }
 
-/* UPDATED: Title styling to remove absolute positioning */
 .header-title {
-  margin: 0; /* Remove default h1 margin */
-  font-size: 1.8em; /* Slightly smaller to fit better */
+  margin: 0;
+  font-size: 1.8em;
   color: #e94560;
   text-transform: uppercase;
   letter-spacing: 2px;
-  position: static; /* No longer absolutely positioned */
-  transform: none; /* Remove transform */
   white-space: nowrap;
 }
 
@@ -61,7 +58,7 @@
   margin: 0;
   padding: 0;
   display: flex;
-  gap: 25px; /* Adjusted gap for more links */
+  gap: 25px;
 }
 
 .header-nav .nav-links button {
@@ -70,7 +67,7 @@
   color: #e0e0e0;
   cursor: pointer;
   font-family: 'Orbitron', sans-serif;
-  font-size: 1em; /* Adjusted font size */
+  font-size: 1em;
   font-weight: bold;
   padding: 0;
   transition: color 0.3s ease;
@@ -89,24 +86,20 @@
 }
 
 
-/* --- Mobile Responsiveness (Portrait Orientation) --- */
-@media (max-width: 1024px) { /* Changed breakpoint for better responsiveness */
+/* --- Mobile Responsiveness --- */
+@media (max-width: 1024px) {
   .header-nav .nav-links {
-    display: none; /* Hide desktop nav on tablets and smaller */
+    display: none;
   }
-
   .nav-menu-icon {
     display: block; 
   }
-
   .nav-menu-icon.menu-is-open {
     position: fixed;
     top: 20px;
     right: 4%;
     color: #ffffff;
   }
-
-  /* Mobile menu overlay */
   .header-nav .nav-links.active {
     display: flex; 
     position: fixed;
@@ -122,13 +115,11 @@
     align-items: center;
     z-index: 1001;
   }
-
   .header-nav .nav-links li {
-    margin: 20px 0; /* Adjusted margin for more items */
+    margin: 20px 0;
   }
-
   .header-nav .nav-links button {
-    font-size: 1.8em; /* Adjusted font size */
+    font-size: 1.8em;
   }
 }
 
