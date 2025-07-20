@@ -1,110 +1,181 @@
-/* Grid container for the team members */
-.team-grid {
+/* Import thematic fonts from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Yuji+Syuku&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap');
+
+/* Grid container for the scroll cards */
+.team-grid-jjk {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 30px;
-  width: 100%;
-  max-width: 1200px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 50px;
+  
+  /* --- FIX: Full-width Layout --- */
+  /* This combination breaks the element out of its parent container's padding */
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  
+  /* Add our own padding inside the new full-width container */
+  padding: 0 50px;
   margin-top: 20px;
-  perspective: 1000px;
+  box-sizing: border-box;
 }
 
-/* Individual team member card */
-.team-card {
-  background: radial-gradient(circle, rgba(22, 33, 62, 0.7), rgba(22, 33, 62, 0.4));
-  border-radius: 15px;
-  padding: 25px;
+/* Responsive fallbacks for the grid */
+@media (max-width: 1100px) {
+  .team-grid-jjk {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .team-grid-jjk {
+    grid-template-columns: 1fr;
+    padding: 0 25px; /* Adjust padding for smaller screens */
+  }
+}
+
+
+/* Main scroll card styling */
+.team-card-jjk {
+  background: #1a1a2e;
+  background-image: 
+    linear-gradient(rgba(26, 26, 46, 0.9), rgba(26, 26, 46, 0.9)),
+    url('https://www.transparenttextures.com/patterns/handmade-paper.png');
+  padding: 30px 20px;
   text-align: center;
-  backdrop-filter: blur(5px);
-  border: 1px solid rgba(233, 69, 96, 0.2);
-  transform-style: preserve-3d;
-  will-change: transform, box-shadow, border-color; 
-  opacity: 0;
-  transform: translateY(50px);
-  position: relative; /* Needed for pseudo-elements */
-  overflow: hidden; /* Hide overflowing pseudo-elements */
+  position: relative;
+  overflow: hidden; /* Important to clip pseudo-elements & border radius */
+  border-radius: 20px; /* Rounded corners */
+  border: 1px solid #333;
+  border-right: 2px solid #222;
+  border-left: 2px solid #222;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
 }
 
-/* --- Thematic Corner Brackets --- */
-.team-card::before, .team-card::after {
+/* --- Scroll End Effect --- */
+.team-card-jjk::before, .team-card-jjk::after {
   content: '';
   position: absolute;
-  width: 25px;
-  height: 25px;
-  border-color: rgba(0, 170, 255, 0.3);
-  border-style: solid;
-  transition: border-color 0.3s ease;
+  left: -2px;
+  right: -2px;
+  height: 20px;
+  background: linear-gradient(to right, #111, #333, #111);
+  border-radius: 50% / 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  z-index: 2;
 }
 
-.team-card::before {
-  top: 10px;
-  left: 10px;
-  border-width: 2px 0 0 2px;
+.team-card-jjk::before {
+  top: -10px;
 }
 
-.team-card::after {
-  bottom: 10px;
-  right: 10px;
-  border-width: 0 2px 2px 0;
+.team-card-jjk::after {
+  bottom: -10px;
 }
 
-/* Brighten corners on hover (still works with GSAP) */
-.team-card:hover::before, .team-card:hover::after {
-  border-color: rgba(0, 170, 255, 0.8);
+/* Glowing aura effect */
+.cursed-aura {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 150%;
+  height: 150%;
+  background: radial-gradient(circle, var(--aura-color) 0%, transparent 60%);
+  transform: translate(-50%, -50%) scale(0.8);
+  opacity: 0;
+  z-index: 0;
+  transition: opacity 0.4s, transform 0.4s;
 }
 
-
-/* Container for the photo */
-.team-photo-container {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  overflow: hidden;
-  margin: 0 auto 20px;
-  border: 3px solid #e94560;
-  box-shadow: 0 0 15px rgba(233, 69, 96, 0.5);
+/* Faint background sigils */
+.cursed-sigils {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 15em;
+  color: #fff;
+  opacity: 0.03;
+  z-index: 0;
+  transition: opacity 0.4s;
 }
 
-.team-photo {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+/* Card Content Styling */
+.card-header, .card-body, .card-footer {
+  position: relative;
+  z-index: 1;
 }
 
-/* Member's name */
-.member-name {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 1.4em;
+.top-seal {
+  font-family: 'Yuji Syuku', serif;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 1.2em;
+}
+
+.member-name-jjk {
+  font-family: 'Yuji Syuku', serif;
+  font-size: 2.5em;
   color: #e0e0e0;
-  margin: 0 0 8px;
-  text-shadow: 0 0 5px rgba(224, 224, 224, 0.3);
+  margin: 10px 0;
 }
 
-/* Member's position/role */
-.member-position {
-  font-family: 'Inter', sans-serif;
+.member-role-jjk {
+  font-family: 'Noto Sans JP', sans-serif;
   font-size: 1em;
   color: #00aaff;
-  margin: 0 0 20px;
-  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
 }
 
-/* Container for social media icons */
-.social-links {
+.technique-divider {
+  width: 80%;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(0, 170, 255, 0.5), transparent);
+  margin: 0 auto 20px;
+}
+
+.technique-info {
+  margin-bottom: 15px;
+}
+
+.technique-title {
+  font-family: 'Noto Sans JP', sans-serif;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.8em;
+  margin: 0 0 2px;
+  text-transform: uppercase;
+}
+
+.technique-name {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 700;
+  font-size: 1.1em;
+  color: #e0e0e0;
+  margin: 0;
+}
+
+.technique-name.expansion {
+  color: var(--aura-color);
+  text-shadow: 0 0 10px var(--aura-color);
+}
+
+.social-links-jjk {
+  margin-top: 20px;
   display: flex;
   justify-content: center;
   gap: 25px;
 }
 
-.social-links a {
-  color: #c0c0c0;
+.social-links-jjk a {
+  color: rgba(255, 255, 255, 0.6);
   font-size: 1.6em;
-  transition: color 0.3s ease, transform 0.3s ease;
+  transition: color 0.3s, transform 0.3s;
 }
 
-.social-links a:hover {
+.social-links-jjk a:hover {
   color: #00aaff;
-  transform: scale(1.2) translateY(-2px);
+  transform: scale(1.2);
 }
