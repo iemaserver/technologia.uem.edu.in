@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Section from './Section';
 import './Team.css';
 import { FaLinkedin, FaGithub } from 'react-icons/fa';
@@ -11,7 +11,11 @@ const teamMembers = [
     technique: "Cursed Technique: Full-Stack Conjuring",
     expansion: "Domain Expansion: Turquoise Glitch Nexus",
     auraColor: "#8E44AD",
-    socials: { linkedin: '#', twitter: '#', github: '#' },
+    socials: {
+      linkedin: '#',
+      twitter: '#',
+      github: '#',
+    },
   },
   {
     name: "Rajeet Ash",
@@ -31,7 +35,10 @@ const teamMembers = [
     technique: "Cursed Technique: Algorithmic Beast Taming",
     expansion: "Domain Expansion: Chimera Swarm Protocol",
     auraColor: "#E74C3C",
-    socials: { linkedin: '#', github: '#' },
+    socials: {
+      linkedin: '#',
+      github: '#',
+    },
   },
 ];
 
@@ -39,22 +46,20 @@ const TeamCard = ({ member }) => {
   const [flipped, setFlipped] = useState(false);
   const imgName = member.name.toLowerCase().replace(/ /g, '-');
 
-  useEffect(() => {
-    if (flipped) {
-      const timer = setTimeout(() => setFlipped(false), 4000); // auto unflip
-      return () => clearTimeout(timer);
-    }
-  }, [flipped]);
+  // The useEffect for auto-unflip is no longer needed with hover
 
   return (
     <div
       className={`team-card-jjk ${flipped ? 'flipped' : ''}`}
       style={{ '--aura-color': member.auraColor }}
-      onClick={() => setFlipped(!flipped)}
+      onMouseEnter={() => setFlipped(true)}
+      onMouseLeave={() => setFlipped(false)}
     >
       <div className="card-inner">
         {/* Front Face */}
         <div className="card-front">
+          <div className="cursed-aura"></div>
+          <div className="cursed-sigils">呪</div>
           <img
             className="member-photo"
             src={`/images/${imgName}.jpg`}
@@ -65,7 +70,11 @@ const TeamCard = ({ member }) => {
 
         {/* Back Face */}
         <div className="card-back">
-          <div className="card-header"><span className="top-seal">呪術高専</span></div>
+          <div className="cursed-aura"></div>
+          <div className="cursed-sigils">術</div>
+          <div className="card-header">
+            <span className="top-seal">呪術高専</span>
+          </div>
           <div className="card-body">
             <h3 className="member-name-jjk">{member.name}</h3>
             <p className="member-role-jjk">{member.role}</p>

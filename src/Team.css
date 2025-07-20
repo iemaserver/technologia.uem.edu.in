@@ -3,113 +3,144 @@
 
 .team-grid-jjk {
   display: grid;
-  grid-template-columns: repeat(3, minmax(300px, 1fr)); /* default: 3 cards */
-  gap: 40px;
-  padding: 0 40px;
-  margin: 40px auto;
+  grid-template-columns: repeat(3, 1fr); /* Default to 3 cards for landscape */
+  gap: 50px;
+  justify-content: center;
+  padding: 70px clamp(30px, 5vw, 80px);
   width: 100%;
   box-sizing: border-box;
-  justify-content: center;
 }
 
-/* Portrait mode or small screens — 1 card per row */
-@media (max-width: 768px), (orientation: portrait) {
-  .team-grid-jjk {
-    grid-template-columns: 1fr;
-  }
-}
-
-
-/* Card Container */
 .team-card-jjk {
-  perspective: 1000px;
+  perspective: 1500px;
   cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  align-self: stretch;
-  min-height: 660px; /* <-- Updated height */
+  position: relative;
+  aspect-ratio: 3 / 4; 
 }
 
-/* Inner Card must stretch to match height */
 .card-inner {
-  position: relative;
-  flex: 1;
-  height: 100%;
-  width: 100%;
+  transform-origin: center center;
   transform-style: preserve-3d;
   transition: transform 0.8s ease;
+  width: 100%;
+  height: 100%;
+  position: relative;
 }
 
-/* Flip hover (desktop) */
-@media (hover: hover) {
-  .team-card-jjk:hover .card-inner {
-    transform: rotateY(180deg);
-  }
+
+.team-card-jjk:hover .card-inner {
+  transform: rotateY(180deg);
 }
 
-/* Flip toggle (mobile) */
 .team-card-jjk.flipped .card-inner {
   transform: rotateY(180deg);
 }
 
-/* Shared face styles */
-.card-front,
-.card-back {
+.card-front, .card-back {
   position: absolute;
-  inset: 0;
-  backface-visibility: hidden;
+  width: 100%;
+  height: 100%;
+  padding: 30px 20px;
   border-radius: 20px;
-  overflow: hidden;
+  background: #1a1a2e;
+  background-image: 
+    linear-gradient(rgba(26, 26, 46, 0.95), rgba(26, 26, 46, 0.95)),
+    url('https://www.transparenttextures.com/patterns/handmade-paper.png');
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  border: 1px solid #333;
+  overflow: hidden;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 30px;
-  box-sizing: border-box;
-  min-height: 660px; /* <-- Updated height */
-  height: 100%;
-  width: 100%;
+  justify-content: center; /* Vertically center content */
+  align-items: center; /* Horizontally center content */
+  text-align: center; /* Center text for all children */
+  transition: box-shadow 0.3s ease;
 }
 
-/* Front Face */
 .card-front {
-  background: #111;
+  z-index: 2;
 }
 
+.card-back {
+  transform: rotateY(180deg);
+  z-index: 1;
+}
+
+/* Aura and Sigils */
+.team-card-jjk::before,
+.team-card-jjk::after {
+  content: '';
+  position: absolute;
+  left: -2px;
+  right: -2px;
+  height: 20px;
+  /* background: linear-gradient(to right, #111, #333, #111); */
+  border-radius: 50% / 10px;
+  /* box-shadow: 0 0 10px rgba(0,0,0,0.5); */
+  z-index: 2;
+}
+.team-card-jjk::before { top: -10px; }
+.team-card-jjk::after { bottom: -10px; }
+
+.cursed-aura {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 160%;
+  height: 160%;
+  background: radial-gradient(circle, var(--aura-color) 0%, transparent 60%);
+  transform: translate(-50%, -50%);
+  opacity: 0.25; /* Increased opacity for visibility */
+  z-index: 0;
+  pointer-events: none;
+}
+
+.cursed-sigils {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 14em;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  opacity: 0.025;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* FRONT: Name + Photo */
 .member-photo {
-  width: 120px;
-  height: 120px;
+  width: 180px;
+  height: 180px;
   border-radius: 50%;
-  border: 4px solid var(--aura-color);
   object-fit: cover;
-  margin-bottom: 15px;
+  border: 4px solid var(--aura-color);
+  box-shadow: 0 0 20px var(--aura-color);
+  margin-bottom: 20px;
 }
 
 .member-name-front {
   font-family: 'Yuji Syuku', serif;
-  font-size: 1.8em;
-  color: var(--aura-color);
+  font-size: 2em;
+  color: #e0e0e0;
+  z-index: 2;
 }
 
-/* Back Face */
-.card-back {
-  background: #1a1a2e;
-  transform: rotateY(180deg);
-  justify-content: space-between;
-}
-
-.top-seal {
+/* BACK: Full Details */
+.card-header .top-seal {
   font-family: 'Yuji Syuku', serif;
   color: rgba(255, 255, 255, 0.4);
   font-size: 1.2em;
+  margin-bottom: 10px;
 }
 
 .member-name-jjk {
   font-family: 'Yuji Syuku', serif;
-  font-size: 2em;
+  font-size: 2.2em;
   color: #e0e0e0;
   margin: 10px 0;
+  z-index: 2;
 }
 
 .member-role-jjk {
@@ -128,23 +159,20 @@
   margin: 0 auto 20px;
 }
 
-.technique-info {
-  margin-bottom: 15px;
-}
-
 .technique-title {
+  font-size: 0.8em;
   font-family: 'Noto Sans JP', sans-serif;
   color: rgba(255, 255, 255, 0.5);
-  font-size: 0.8em;
   text-transform: uppercase;
-  margin-bottom: 5px;
+  margin-bottom: 3px;
 }
 
 .technique-name {
-  font-family: 'Noto Sans JP', sans-serif;
   font-weight: 700;
   font-size: 1.1em;
   color: #e0e0e0;
+  font-family: 'Noto Sans JP', sans-serif;
+  margin-bottom: 15px;
 }
 
 .technique-name.expansion {
@@ -162,14 +190,34 @@
 .social-links-jjk a {
   color: rgba(255, 255, 255, 0.6);
   font-size: 1.6em;
-  transition: color 0.3s, transform 0.3s;
+  transition: transform 0.3s, color 0.3s;
 }
 
 .social-links-jjk a:hover {
-  color: #00aaff;
+  color: var(--aura-color);
   transform: scale(1.2);
 }
 
-.team-grid-jjk {
-  justify-content: center;
+/* Responsive Tweaks */
+@media (orientation: portrait) {
+  .team-grid-jjk {
+    grid-template-columns: 1fr; /* 1 card per row in portrait mode */
+  }
 }
+
+@media (max-width: 700px) {
+  .team-grid-jjk {
+    padding: 20px 20px;
+    grid-template-columns: 1fr; /* Also 1 card for small screens */
+    gap: 50px;
+  }
+  .card-inner {
+    min-height: 500px;
+    will-change: transform;
+  }
+}
+
+.team-card-jjk:hover {
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
