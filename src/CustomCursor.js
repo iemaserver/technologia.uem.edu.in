@@ -33,8 +33,8 @@ const CustomCursor = () => {
       transformOrigin: "50% 100%",
     });
 
-    const xTo = gsap.quickTo(cursorRef.current, "x", { duration: 0.4, ease: "power2.out" });
-    const yTo = gsap.quickTo(cursorRef.current, "y", { duration: 0.4, ease: "power2.out" });
+    const xTo = gsap.quickTo(cursorRef.current, "x", { duration: 0.05, ease: "power2.out" });
+    const yTo = gsap.quickTo(cursorRef.current, "y", { duration: 0.05, ease: "power2.out" });
 
     const onMouseMove = (e) => {
       if (Date.now() - lastTouchTimeRef.current < 500) return;
