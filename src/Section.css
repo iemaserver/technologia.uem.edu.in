@@ -4,7 +4,7 @@
   justify-content: center;
   align-items: center;
   padding: 120px 2% 60px; /* Reduced horizontal padding */
-  width: 100%; /* Use full width */
+  width: 95%; /* Use full width */
   box-sizing: border-box; /* Include padding in width calculation */
   text-align: center;
   min-height: calc(100vh - 180px);
