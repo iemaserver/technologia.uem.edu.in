@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/technologia/static/css/main.30cb7cb8.css",
-    "main.js": "/technologia/static/js/main.cd65d6d1.js",
+    "main.js": "/technologia/static/js/main.7df4483a.js",
     "static/js/453.84635ca7.chunk.js": "/technologia/static/js/453.84635ca7.chunk.js",
     "static/media/Sequence 01148.png": "/technologia/static/media/Sequence 01148.e4d8a86b2f6b3baeccee.png",
     "static/media/Sequence 01145.png": "/technologia/static/media/Sequence 01145.219516631ed60f42ca5f.png",
@@ -212,11 +212,11 @@
     "static/media/loader1.png": "/technologia/static/media/loader1.b1e501b01b2a7818214c.png",
     "index.html": "/technologia/index.html",
     "main.30cb7cb8.css.map": "/technologia/static/css/main.30cb7cb8.css.map",
-    "main.cd65d6d1.js.map": "/technologia/static/js/main.cd65d6d1.js.map",
+    "main.7df4483a.js.map": "/technologia/static/js/main.7df4483a.js.map",
     "453.84635ca7.chunk.js.map": "/technologia/static/js/453.84635ca7.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.30cb7cb8.css",
-    "static/js/main.cd65d6d1.js"
+    "static/js/main.7df4483a.js"
   ]
 }
