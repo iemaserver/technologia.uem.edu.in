@@ -1,40 +1,48 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import './CustomCursor.css';
 
+// --- Preload cursor frames as Image elements ---
 function importAll(r) {
   const customSort = (a, b) => {
     const numA = parseInt(a.match(/(\d+)/)[0], 10);
     const numB = parseInt(b.match(/(\d+)/)[0], 10);
     return numA - numB;
   };
-  return r.keys().sort(customSort).map(r);
+
+  return r.keys().sort(customSort).map((key) => {
+    const img = new Image();
+    img.src = r(key);
+    return img;
+  });
 }
 
 const cursorFrames = importAll(require.context('./assets/cursor', false, /Sequence \d+\.png$/));
-const FRAME_RATE = 1000 / 24;
+// UPDATED: Slowed down the frame rate for a smoother effect
+const FRAME_RATE = 1000 / 15; // Target 15fps
 
 const CustomCursor = () => {
-  const [currentFrame, setCurrentFrame] = useState(0);
-  const [isHovering, setIsHovering] = useState(false);
-  const [isVisible, setIsVisible] = useState(false);
-
+  const canvasRef = useRef(null);
   const cursorRef = useRef(null);
   const lastTouchTimeRef = useRef(0);
   const animationFrameId = useRef(null);
+  const frameIndexRef = useRef(0);
   const lastFrameTime = useRef(performance.now());
 
+  const [isHovering, setIsHovering] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+
+  // --- Position and transform via GSAP ---
   useEffect(() => {
     gsap.set(cursorRef.current, {
-      // UPDATED: Corrected the percentage offsets
-      xPercent: -55,  // Center horizontally
-      yPercent: -85, // Align bottom tip to cursor
+      xPercent: -50,
+      yPercent: -100,
       rotation: 30,
-      transformOrigin: "50% 100%",
+      transformOrigin: '50% 100%',
     });
 
-    const xTo = gsap.quickTo(cursorRef.current, "x", { duration: 0.05, ease: "power2.out" });
-    const yTo = gsap.quickTo(cursorRef.current, "y", { duration: 0.05, ease: "power2.out" });
+    const xTo = gsap.quickTo(cursorRef.current, 'x', { duration: 0.4, ease: 'power2.out' });
+    const yTo = gsap.quickTo(cursorRef.current, 'y', { duration: 0.4, ease: 'power2.out' });
 
     const onMouseMove = (e) => {
       if (Date.now() - lastTouchTimeRef.current < 500) return;
@@ -46,16 +54,16 @@ const CustomCursor = () => {
     return () => document.removeEventListener('mousemove', onMouseMove);
   }, []);
 
+  // --- Scale on hover ---
   useEffect(() => {
     gsap.to(cursorRef.current, {
       scale: isHovering ? 1.3 : 1,
-      xTo: -40,
-      yTo: -70,
       duration: 0.3,
       ease: 'power2.out',
     });
   }, [isHovering]);
 
+  // --- Visibility ---
   useEffect(() => {
     gsap.to(cursorRef.current, {
       autoAlpha: isVisible ? 1 : 0,
@@ -64,24 +72,35 @@ const CustomCursor = () => {
     });
   }, [isVisible]);
 
+  // --- Draw to canvas ---
   useEffect(() => {
-    if (cursorFrames.length === 0) return;
-    const animate = (now) => {
+    const ctx = canvasRef.current?.getContext('2d');
+    if (!ctx || cursorFrames.length === 0) return;
+
+    const draw = (now) => {
       if (now - lastFrameTime.current > FRAME_RATE) {
         lastFrameTime.current = now;
-        setCurrentFrame((prevFrame) => (prevFrame + 1) % cursorFrames.length);
+        const frame = cursorFrames[frameIndexRef.current];
+        
+        // Ensure the image is loaded before drawing
+        if (frame.complete) {
+            ctx.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height);
+            ctx.drawImage(frame, 0, 0, canvasRef.current.width, canvasRef.current.height);
+        }
+
+        frameIndexRef.current = (frameIndexRef.current + 1) % cursorFrames.length;
       }
-      animationFrameId.current = requestAnimationFrame(animate);
+      animationFrameId.current = requestAnimationFrame(draw);
     };
 
     if (isVisible) {
-      animationFrameId.current = requestAnimationFrame(animate);
+      animationFrameId.current = requestAnimationFrame(draw);
     }
-    return () => {
-      if (animationFrameId.current) cancelAnimationFrame(animationFrameId.current);
-    };
+
+    return () => cancelAnimationFrame(animationFrameId.current);
   }, [isVisible]);
 
+  // --- Events ---
   useEffect(() => {
     const onMouseEnterBody = () => {
       if (Date.now() - lastTouchTimeRef.current < 500) return;
@@ -105,12 +124,20 @@ const CustomCursor = () => {
       setIsVisible(false);
     };
     const onElementEnter = (e) => {
-      if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON' || e.target.closest('.nav-menu-icon')) {
+      if (
+        e.target.tagName === 'A' ||
+        e.target.tagName === 'BUTTON' ||
+        e.target.closest('.nav-menu-icon')
+      ) {
         setIsHovering(true);
       }
     };
     const onElementLeave = (e) => {
-      if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON' || e.target.closest('.nav-menu-icon')) {
+      if (
+        e.target.tagName === 'A' ||
+        e.target.tagName === 'BUTTON' ||
+        e.target.closest('.nav-menu-icon')
+      ) {
         setIsHovering(false);
       }
     };
@@ -138,9 +165,13 @@ const CustomCursor = () => {
 
   return (
     <div ref={cursorRef} className="image-cursor">
-      {cursorFrames.length > 0 && (
-        <img src={cursorFrames[currentFrame]} alt="Cursor Animation" />
-      )}
+      <canvas
+        ref={canvasRef}
+        className="cursor-canvas"
+        // The canvas resolution should be high for quality
+        width={256}
+        height={256}
+      />
     </div>
   );
 };

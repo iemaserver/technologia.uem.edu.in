@@ -1,251 +1,153 @@
-/* Import thematic fonts from Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Yuji+Syuku&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap');
+/* --- Font Imports (same as before) --- */
+@font-face {
+  font-family: 'Ditty';
+  src: url('./assets/fonts/Ditty.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 
-/* === GRID CONTAINER === */
-.team-grid-jjk {
+@font-face {
+  font-family: 'Naganoshi';
+  src: url('./assets/fonts/Naganoshi.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* --- Layout --- */
+.team-grid-new {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 80px;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 60px;
   width: 100%;
-  max-width: 2000px;
-  margin: 60px auto 0;
-  padding: 0 20px;
-  box-sizing: border-box;
+  max-width: 1200px;
+  margin: 40px auto 0;
+  perspective: 2000px;
 }
 
-/* Responsive Grid */
-@media (max-width: 1100px) {
-  .team-grid-jjk {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 700px) {
-  .team-grid-jjk {
-    grid-template-columns: 1fr;
-    padding: 0 25px;
-  }
-}
-
-/* === FLIP CONTAINER === */
-.card-container {
-  perspective: 1000px;
-  width: 100%;
-  height: 500px;
+/* --- Card Styling --- */
+.team-card-new {
+  aspect-ratio: 3 / 4;
   position: relative;
   transform-style: preserve-3d;
+  transition: transform 0.3s;
 }
 
-
-.team-card-flip {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  transform-style: preserve-3d;
-  transition: transform 0.8s ease;
-}
-
-.card-container:hover .team-card-flip,
-.card-container.flipped .team-card-flip {
-  transform: rotateY(180deg);
-}
-
-.team-card-front,
-.team-card-back {
+.card-background {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
   border-radius: 20px;
-  overflow: hidden;
+  z-index: 1;
+  filter: brightness(0.85) contrast(1.1);
 }
 
+.card-border {
+  position: absolute;
+  inset: -2px;
+  border-radius: 22px;
+  background: linear-gradient(135deg, #ff00ff, #e94560, #ff6600);
+  z-index: 0;
+  filter: blur(6px);
+}
 
-/* === FRONT FACE (Logo + Name) === */
-.team-card-front {
-  background: #111827;
+.card-content-new {
+  position: absolute;
+  inset: 15px;
+  background-color: rgba(0, 0, 0, 0.35);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  border: 1.5px solid rgba(255, 255, 255, 0.1);
+  z-index: 2;
+  padding: 20px;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  padding: 30px;
-  z-index: 2;
-  border: 1px solid #333;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
 }
 
-.member-avatar {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  margin-bottom: 15px;
-  object-fit: contain;
-  filter: brightness(1.2);
-}
-
-.member-name-front {
-  font-family: 'Yuji Syuku', serif;
-  font-size: 1.8em;
-  color: #e0e0e0;
-}
-
-/* === BACK FACE (Detailed Card) === */
-.team-card-back {
-  transform: rotateY(180deg);
-  z-index: 1;
-}
-
-/* === BACK CARD BASE STYLE === */
-.team-card-jjk {
-  background: #1a1a2e;
-  background-image:
-    linear-gradient(rgba(26, 26, 46, 0.9), rgba(26, 26, 46, 0.9)),
-    url('https://www.transparenttextures.com/patterns/handmade-paper.png');
-  padding: 30px 20px;
+/* --- Top Text (Position Title) --- */
+.top-text {
+  width: 100%;
   text-align: center;
   position: relative;
-  overflow: hidden;
-  border-radius: 20px;
-  border: 1px solid #333;
-  border-right: 2px solid #222;
-  border-left: 2px solid #222;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease;
 }
 
-/* Scroll Top & Bottom Seal */
-.team-card-jjk::before, .team-card-jjk::after {
-  content: '';
-  position: absolute;
-  left: -2px;
-  right: -2px;
-  height: 20px;
-  /* background: linear-gradient(to right, #111, #333, #111); */
-  border-radius: 50% / 10px;
-  /* box-shadow: 0 0 10px rgba(0,0,0,0.5); */
-  z-index: 2;
-}
-
-.team-card-jjk::before {
-  top: -10px;
-}
-
-.team-card-jjk::after {
-  bottom: -10px;
-}
-
-/* === AURA GLOW === */
-.cursed-aura {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 130%;
-  height: 100%;
-  background: radial-gradient(circle, var(--aura-color) 10%, transparent 60%);
-  transform: translate(-50%, -50%) scale(0.8);
-  opacity: 0;
-  z-index: 0;
-  pointer-events: none;
-  transition: opacity 0.4s, transform 0.4s;
-}
-
-.cursed-sigils {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 15em;
+.member-position-new {
+  font-family: 'Ditty', sans-serif;
+  font-size: 2.2em;
   color: #fff;
-  opacity: 0.03;
-  z-index: 0;
-  pointer-events: none;
-  transition: opacity 0.4s;
-}
-
-.team-card-jjk {
-  height: 100%;
-  padding: 25px 20px;
-}
-
-
-/* === CARD CONTENT === */
-.card-header, .card-body, .card-footer {
-  position: relative;
-  z-index: 1;
-}
-
-.top-seal {
-  font-family: 'Yuji Syuku', serif;
-  color: rgba(255, 255, 255, 0.4);
-  font-size: 1.2em;
-}
-
-.member-name-jjk {
-  font-family: 'Yuji Syuku', serif;
-  font-size: 2.5em;
-  color: #e0e0e0;
-  margin: 10px 0;
-}
-
-.member-role-jjk {
-  font-family: 'Noto Sans JP', sans-serif;
-  font-size: 1em;
-  color: #00aaff;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  margin-bottom: 20px;
-}
-
-.technique-divider {
-  width: 80%;
-  height: 1px;
-  background: linear-gradient(to right, transparent, rgba(0, 170, 255, 0.5), transparent);
-  margin: 0 auto 20px;
-}
-
-.technique-info {
-  margin-bottom: 15px;
-}
-
-.technique-title {
-  font-family: 'Noto Sans JP', sans-serif;
-  color: rgba(255, 255, 255, 0.5);
-  font-size: 0.8em;
-  margin: 0 0 2px;
-  text-transform: uppercase;
-}
-
-.technique-name {
-  font-family: 'Noto Sans JP', sans-serif;
-  font-weight: 700;
-  font-size: 1.1em;
-  color: #e0e0e0;
+  text-shadow: 0 0 6px #ff00ff, 0 0 12px #e94560;
   margin: 0;
+  letter-spacing: 0.5px;
 }
 
-.technique-name.expansion {
-  color: var(--aura-color);
-  text-shadow: 0 0 10px var(--aura-color);
-}
-
-/* === SOCIAL ICONS === */
-.social-links-jjk {
-  margin-top: 20px;
-  display: flex;
-  justify-content: center;
-  gap: 25px;
-}
-
-.social-links-jjk a {
+.japanese-seal {
+  position: absolute;
+  top: -12px;
+  right: 0;
+  font-family: 'Yuji Syuku', serif;
   color: rgba(255, 255, 255, 0.6);
-  font-size: 1.6em;
+  font-size: 0.8em;
+  letter-spacing: 0.1em;
+}
+
+/* --- Circular Photo --- */
+.photo-container-new {
+  width: 66%;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  border: 4px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 0 0 25px rgba(255, 0, 255, 0.4);
+  overflow: hidden;
+  margin: 25px 0;
+}
+
+.photo-container-new img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* --- Bottom Name Section --- */
+.bottom-text {
+  text-align: center;
+}
+
+.member-name-new {
+  font-family: 'Naganoshi', sans-serif;
+  font-size: 2.8em;
+  color: #fff;
+  margin: 0;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
+}
+
+.member-name-japanese {
+  font-family: 'Naganoshi', sans-serif;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 1.2em;
+  margin-top: 5px;
+}
+
+/* --- Social Icons (Bottom Left) --- */
+.socials-new {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  display: flex;
+  flex-direction: row;
+  gap: 18px;
+}
+
+.socials-new a {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1.4em;
   transition: color 0.3s, transform 0.3s;
 }
 
-.social-links-jjk a:hover {
-  color: #00aaff;
+.socials-new a:hover {
+  color: #ff00ff;
   transform: scale(1.2);
 }
