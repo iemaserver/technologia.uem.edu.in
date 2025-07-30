@@ -19,7 +19,7 @@ function importAll(r) {
 
 const cursorFrames = importAll(require.context('./assets/cursor', false, /Sequence \d+\.png$/));
 // UPDATED: Slowed down the frame rate for a smoother effect
-const FRAME_RATE = 1000 / 15; // Target 15fps
+const FRAME_RATE = 1000 / 24; // Target 15fps
 
 const CustomCursor = () => {
   const canvasRef = useRef(null);
@@ -35,14 +35,14 @@ const CustomCursor = () => {
   // --- Position and transform via GSAP ---
   useEffect(() => {
     gsap.set(cursorRef.current, {
-      xPercent: -50,
-      yPercent: -100,
+      xPercent: -53,
+      yPercent: -89,
       rotation: 30,
       transformOrigin: '50% 100%',
     });
 
-    const xTo = gsap.quickTo(cursorRef.current, 'x', { duration: 0.4, ease: 'power2.out' });
-    const yTo = gsap.quickTo(cursorRef.current, 'y', { duration: 0.4, ease: 'power2.out' });
+    const xTo = gsap.quickTo(cursorRef.current, 'x', { duration: 0.05, ease: 'power2.out' });
+    const yTo = gsap.quickTo(cursorRef.current, 'y', { duration: 0.05, ease: 'power2.out' });
 
     const onMouseMove = (e) => {
       if (Date.now() - lastTouchTimeRef.current < 500) return;
@@ -169,8 +169,8 @@ const CustomCursor = () => {
         ref={canvasRef}
         className="cursor-canvas"
         // The canvas resolution should be high for quality
-        width={256}
-        height={256}
+        width={512}
+        height={512}
       />
     </div>
   );
