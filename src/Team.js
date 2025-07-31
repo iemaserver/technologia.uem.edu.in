@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
 import Section from './Section';
 import './Team.css';
 import { FaLinkedin, FaInstagram } from 'react-icons/fa';
@@ -12,7 +12,7 @@ const teamMembers = [
     name: 'Jarjis Alam',
     japaneseName: 'ジャージス・アラム',
     position: 'Lead Designer',
-    photo: logo, // Use imported logo image
+    photo: logo,
     socials: {
       linkedin: '#',
       instagram: '#',
@@ -44,122 +44,120 @@ const teamMembers = [
 ];
 
 const Team = () => {
-  const teamGridRef = useRef(null);
-
   useEffect(() => {
-    const cards = Array.from(teamGridRef.current.children);
+    const wrappers = document.querySelectorAll('.card-wrapper');
 
-    gsap.fromTo(
-      cards,
-      { opacity: 0, y: 50 },
-      { duration: 0.8, opacity: 1, y: 0, stagger: 0.2, ease: 'power3.out' }
-    );
+    wrappers.forEach((wrapper) => {
+      const card = wrapper.querySelector('.team-card-new');
+      const background = card.querySelector('.card-background');
 
-    const handleMouseMove = (e, card, content) => {
-      const { left, top, width, height } = card.getBoundingClientRect();
-      const x = e.clientX - left - width / 2;
-      const y = e.clientY - top - height / 2;
-      const rotateX = -(y / height) * 10;
-      const rotateY = (x / width) * 10;
+      const handleMouseMove = (e) => {
+        const rect = wrapper.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        const rotateX = -(y / rect.height) * 15;
+        const rotateY = (x / rect.width) * 15;
 
-      gsap.to(card, {
-        rotationX: rotateX,
-        rotationY: rotateY,
-        duration: 0.6,
-        ease: 'power2.out',
-      });
-      gsap.to(content, {
-        transform: 'translateZ(50px)',
-        duration: 0.6,
-        ease: 'power2.out',
-      });
-    };
+        gsap.to(card, {
+          rotationX: rotateX,
+          rotationY: rotateY,
+          duration: 0.4,
+          ease: 'power3.out',
+        });
 
-    const handleMouseLeave = (card, content) => {
-      gsap.to(card, {
-        rotationX: 0,
-        rotationY: 0,
-        duration: 0.6,
-        ease: 'power2.out',
-      });
-      gsap.to(content, {
-        transform: 'translateZ(0px)',
-        duration: 0.6,
-        ease: 'power2.out',
-      });
-    };
+        gsap.to(background, {
+          x: -(x * 0.05),
+          y: -(y * 0.05),
+          duration: 0.4,
+          ease: 'power3.out',
+        });
+      };
 
-    cards.forEach((card) => {
-      const content = card.querySelector('.card-content-new');
-      const onMove = (e) => handleMouseMove(e, card, content);
-      const onLeave = () => handleMouseLeave(card, content);
+      const handleMouseLeave = () => {
+        gsap.to(card, {
+          rotationX: 0,
+          rotationY: 0,
+          duration: 0.5,
+          ease: 'power3.out',
+        });
 
-      card.addEventListener('mousemove', onMove);
-      card.addEventListener('mouseleave', onLeave);
+        gsap.to(background, {
+          x: 0,
+          y: 0,
+          duration: 0.5,
+          ease: 'power3.out',
+        });
+      };
 
-      // Save listeners for cleanup
-      card._onMove = onMove;
-      card._onLeave = onLeave;
+      wrapper.addEventListener('mousemove', handleMouseMove);
+      wrapper.addEventListener('mouseleave', handleMouseLeave);
+
+      // Cleanup
+      wrapper._onMove = handleMouseMove;
+      wrapper._onLeave = handleMouseLeave;
     });
 
     return () => {
-      cards.forEach((card) => {
-        card.removeEventListener('mousemove', card._onMove);
-        card.removeEventListener('mouseleave', card._onLeave);
+      const wrappers = document.querySelectorAll('.card-wrapper');
+      wrappers.forEach((wrapper) => {
+        wrapper.removeEventListener('mousemove', wrapper._onMove);
+        wrapper.removeEventListener('mouseleave', wrapper._onLeave);
       });
     };
   }, []);
 
   return (
     <Section id="team" title="The Sorcerers">
-      <div className="team-grid-new" ref={teamGridRef}>
+      <div className="team-grid-new">
         {teamMembers.map((member, index) => (
-          <div className="team-card-new" key={index}>
-            <div
-              className="card-background"
-              style={{ backgroundImage: `url(${cardBackground})` }}
-            ></div>
-            <div className="card-border"></div>
-            <div className="card-content-new">
-              <div className="top-text">
-                <p className="member-position-new">{member.position}</p>
-                <span className="japanese-seal">がいそくみらりらきにちちち</span>
-              </div>
-              <div className="photo-container-new">
-                <img src={member.photo} alt={member.name} />
-              </div>
-              <div className="bottom-text">
-                <h3 className="member-name-new">{member.name}</h3>
-                <p className="member-name-japanese">{member.japaneseName}</p>
-              </div>
-              <div className="socials-new">
-                {member.socials.linkedin?.trim() && (
-                  <a
-                    href={member.socials.linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <FaLinkedin />
-                  </a>
-                )}
-                {member.socials.instagram?.trim() && (
-                  <a
-                    href={member.socials.instagram}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <FaInstagram />
-                  </a>
-                )}
-                {member.socials.twitter?.trim() && (
-                  <a
-                    href={member.socials.twitter}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <FaXTwitter />
-                  </a>
-                )}
+          <div className="card-wrapper" key={index}>
+            <div className="team-card-new">
+              <div
+                className="card-background"
+                style={{ backgroundImage: `url(${cardBackground})` }}
+              ></div>
+              <div className="card-border"></div>
+              <div className="card-content-new">
+                <div className="top-text">
+                  <p className="member-position-new">{member.position}</p>
+                  <span className="japanese-seal">がいそくみらりらきにちちち</span>
+                </div>
+                <div className="photo-container-new">
+                  <img src={member.photo} alt={member.name} />
+                </div>
+                <div className="bottom-text">
+                  <h3 className="member-name-new">{member.name}</h3>
+                  <p className="member-name-japanese">{member.japaneseName}</p>
+                </div>
+                <div className="socials-new">
+                  {member.socials.linkedin?.trim() && (
+                    <a
+                      href={member.socials.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <FaLinkedin />
+                    </a>
+                  )}
+                  {member.socials.instagram?.trim() && (
+                    <a
+                      href={member.socials.instagram}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <FaInstagram />
+                    </a>
+                  )}
+                  {member.socials.twitter?.trim() && (
+                    <a
+                      href={member.socials.twitter}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <FaXTwitter />
+                    </a>
+                  )}
+                </div>
               </div>
             </div>
           </div>

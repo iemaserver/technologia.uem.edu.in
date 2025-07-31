@@ -1,27 +1,17 @@
-/* --- Font Imports (same as before) --- */
-@font-face {
-  font-family: 'Ditty';
-  src: url('./assets/fonts/Ditty.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
+/* --- Wrapper with Perspective --- */
+.card-wrapper {
+  perspective: 1200px;
+  will-change: transform;
 }
 
-@font-face {
-  font-family: 'Naganoshi';
-  src: url('./assets/fonts/Naganoshi.otf') format('opentype');
-  font-weight: normal;
-  font-style: normal;
-}
-
-/* --- Layout --- */
+/* --- Grid Layout --- */
 .team-grid-new {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 60px;
   width: 100%;
   max-width: 1200px;
-  margin: 40px auto 0;
-  perspective: 2000px;
+  margin: 1px auto 0;
 }
 
 /* --- Card Styling --- */
@@ -29,17 +19,22 @@
   aspect-ratio: 3 / 4;
   position: relative;
   transform-style: preserve-3d;
-  transition: transform 0.3s;
+  transition: transform 0.3s ease;
+  will-change: transform;
 }
 
+/* --- Background with Parallax Movement --- */
 .card-background {
   position: absolute;
   inset: 0;
   background-size: cover;
   background-position: center;
-  border-radius: 20px;
+  border-radius: 25px;
   z-index: 1;
   filter: brightness(0.85) contrast(1.1);
+  transform: translateZ(-1px) scale(1.03);
+  transition: transform 0.3s ease;
+  will-change: transform;
 }
 
 .card-border {
@@ -48,17 +43,14 @@
   border-radius: 22px;
   background: linear-gradient(135deg, #ff00ff, #e94560, #ff6600);
   z-index: 0;
+  padding: 6px;
   filter: blur(6px);
 }
 
 .card-content-new {
   position: absolute;
   inset: 15px;
-  /* background-color: rgba(0, 0, 0, 0.35); */
-  /* -webkit-backdrop-filter: blur(10px); */
-  /* backdrop-filter: blur(10px); */
   border-radius: 16px;
-  /* border: 1.5px solid rgba(255, 255, 255, 0.1); */
   z-index: 2;
   padding: 20px;
   display: flex;
@@ -67,7 +59,7 @@
   align-items: center;
 }
 
-/* --- Top Text (Position Title) --- */
+/* --- Top Text --- */
 .top-text {
   width: 100%;
   text-align: center;
@@ -93,7 +85,7 @@
   letter-spacing: 0.1em;
 }
 
-/* --- Circular Photo --- */
+/* --- Circular Image --- */
 .photo-container-new {
   width: 50%;
   aspect-ratio: 1/1;
@@ -111,10 +103,9 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
 }
 
-/* --- Bottom Name Section --- */
+/* --- Name --- */
 .bottom-text {
   text-align: center;
 }
@@ -134,23 +125,23 @@
   margin-top: 5px;
 }
 
-/* --- Social Icons (Bottom Left) --- */
+/* --- Social Icons --- */
 .socials-new {
   position: absolute;
-  bottom: 20px;
-  left: 20px;
+  bottom: -10px;
+  left: 5px;
   display: flex;
   flex-direction: row;
-  gap: 18px;
+  gap: 10px;
 }
 
 .socials-new a {
   color: rgba(255, 255, 255, 0.7);
-  font-size: 1.4em;
+  font-size: 1.1em;
   transition: color 0.3s, transform 0.3s;
 }
 
 .socials-new a:hover {
   color: #ff00ff;
-  transform: scale(1.2);
+  transform: scale(1.1);
 }

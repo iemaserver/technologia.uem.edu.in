@@ -4,7 +4,7 @@
 /node_modules
 /.pnp
 .pnp.js
-10-must-play-pixel-art-games-thumb
+10-must-play-pixel-art-games-thumb.jpg
 
 # testing
 /coverage
@@ -22,5 +22,3 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-
-10-must-play-pixel-art-games-thumb.jpg
