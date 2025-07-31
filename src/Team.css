@@ -1,4 +1,4 @@
-/* --- Font Imports (same as before) --- */
+/* --- Font Imports --- */
 @font-face {
   font-family: 'Ditty';
   src: url('./assets/fonts/Ditty.ttf') format('truetype');
@@ -54,17 +54,14 @@
 .card-content-new {
   position: absolute;
   inset: 15px;
-  /* background-color: rgba(0, 0, 0, 0.35); */
-  /* -webkit-backdrop-filter: blur(10px); */
-  /* backdrop-filter: blur(10px); */
   border-radius: 16px;
-  /* border: 1.5px solid rgba(255, 255, 255, 0.1); */
   z-index: 2;
-  padding: 20px;
+  padding: 24px 20px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  gap: 20px;
 }
 
 /* --- Top Text (Position Title) --- */
@@ -76,32 +73,23 @@
 
 .member-position-new {
   font-family: 'Ditty', sans-serif;
-  font-size: 2.2em;
+  font-size: 1.8em;
   color: #fff;
   text-shadow: 0 0 6px #ff00ff, 0 0 12px #e94560;
   margin: 0;
   letter-spacing: 0.5px;
 }
 
-.japanese-seal {
-  position: absolute;
-  top: -12px;
-  right: 0;
-  font-family: 'Yuji Syuku', serif;
-  color: rgba(255, 255, 255, 0.6);
-  font-size: 0.8em;
-  letter-spacing: 0.1em;
-}
-
-/* --- Circular Photo --- */
+/* --- Circular Image --- */
 .photo-container-new {
-  width: 66%;
+  width: 85%;
   aspect-ratio: 1 / 1;
   border-radius: 50%;
   border: 4px solid rgba(255, 255, 255, 0.85);
   box-shadow: 0 0 25px rgba(255, 0, 255, 0.4);
   overflow: hidden;
-  margin: 25px auto;
+  margin: 30px 0;
+  background-color: #111;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -110,18 +98,26 @@
 .photo-container-new img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: cover; /* change to 'contain' if needed */
+  object-position: center;
   display: block;
+  border-radius: 50%;
 }
 
 /* --- Bottom Name Section --- */
 .bottom-text {
   text-align: center;
+  margin-bottom: 30px;
+}
+
+.bottom-text h3,
+.bottom-text p {
+  margin: 6px 0;
 }
 
 .member-name-new {
   font-family: 'Naganoshi', sans-serif;
-  font-size: 2.8em;
+  font-size: 2.4em;
   color: #fff;
   margin: 0;
   text-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
@@ -134,19 +130,19 @@
   margin-top: 5px;
 }
 
-/* --- Social Icons (Bottom Left) --- */
+/* --- Social Icons --- */
 .socials-new {
   position: absolute;
-  bottom: 20px;
+  bottom: 0px;
   left: 20px;
   display: flex;
   flex-direction: row;
-  gap: 18px;
+  gap: 12px;
 }
 
 .socials-new a {
   color: rgba(255, 255, 255, 0.7);
-  font-size: 1.4em;
+  font-size: 1.1em;
   transition: color 0.3s, transform 0.3s;
 }
 
@@ -154,3 +150,4 @@
   color: #ff00ff;
   transform: scale(1.2);
 }
+

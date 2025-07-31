@@ -123,7 +123,7 @@ const Team = () => {
             <div className="card-content-new">
               <div className="top-text">
                 <p className="member-position-new">{member.position}</p>
-                <span className="japanese-seal">がいそくみらりらきにちちち</span>
+                
               </div>
               <div className="photo-container-new">
                 <img src={member.photo} alt={member.name} />
