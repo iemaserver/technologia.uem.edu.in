@@ -1,0 +1,104 @@
+/* Main wrapper to contain stickers */
+.partners-section-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.partners-intro {
+    text-align: center;
+    font-size: 1.2em;
+    color: #c0c0c0;
+    margin-bottom: 50px;
+}
+
+/* Category title styling */
+.category-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2.5em;
+    color: #e94560;
+    margin-bottom: 30px;
+    text-shadow: 0 0 10px rgba(233, 69, 96, 0.5);
+    text-align: center;
+}
+
+.partner-category {
+    margin-bottom: 60px;
+}
+
+/* Grid for the partner cards */
+.logos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    perspective: 1500px; /* 3D space for GSAP */
+}
+
+/* NEW: Redesigned partner card */
+.partner-card {
+    background-color: rgba(22, 33, 62, 0.7);
+    border: 1px solid rgba(0, 170, 255, 0.2);
+    border-radius: 15px;
+    padding: 25px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    min-height: 200px;
+    transform-style: preserve-3d; /* Enable 3D transforms */
+    will-change: transform; /* Performance optimization */
+    backdrop-filter: blur(5px);
+}
+
+/* The shine/glare effect for the 3D hover */
+.shine-effect {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, transparent 50%);
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* Partner logo image */
+.partner-card img {
+    max-width: 80%;
+    max-height: 80px;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 5px 10px rgba(0,0,0,0.3));
+    z-index: 1;
+    transform: translateZ(20px); /* Give the logo some depth */
+}
+
+/* Partner name text */
+.partner-name {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 700;
+    color: #e0e0e0;
+    font-size: 1.1em;
+    z-index: 1;
+    transform: translateZ(20px); /* Give the text some depth */
+}
+
+/* Floating sticker images */
+.floating-sticker {
+    position: absolute;
+    width: 100px;
+    pointer-events: none;
+    opacity: 0.5;
+    z-index: 0;
+    /* GSAP now handles the animation */
+}
+.sticker-1 {
+    top: 5%;
+    left: 2%;
+}
+.sticker-2 {
+    bottom: 5%;
+    right: 2%;
+}

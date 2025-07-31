@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Header from './Header';
 import InteractiveBackground from './InteractiveBackground';
+import ThreeBackground from './ThreeBackground';
 import CustomCursor from './CustomCursor';
 import Loader from './Loader';
 import Home from './Home';
@@ -53,6 +54,7 @@ function App() {
         <>
           <CustomCursor />
           <InteractiveBackground />
+          <ThreeBackground />
           <Header setActiveScreen={setActiveScreen} />
           <main className="App-body">
             {renderScreen()}

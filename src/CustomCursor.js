@@ -19,7 +19,7 @@ function importAll(r) {
 
 const cursorFrames = importAll(require.context('./assets/cursor', false, /Sequence \d+\.png$/));
 // UPDATED: Slowed down the frame rate for a smoother effect
-const FRAME_RATE = 1000 / 24; // Target 15fps
+const FRAME_RATE = 1000 / 24; // Target 24fps
 
 const CustomCursor = () => {
   const canvasRef = useRef(null);
