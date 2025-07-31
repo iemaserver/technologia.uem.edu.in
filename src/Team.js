@@ -41,6 +41,17 @@ const teamMembers = [
       twitter: '#',
     },
   },
+  {
+    name: 'Ranasurya Ghosh',
+    japaneseName: 'ラナスリヤーヤ・ゴッショ',
+    position: 'Shikigami Tactician',
+    photo: 'https://placehold.co/300x300/1a1a2e/e94560?text=Ranasurya',
+    socials: {
+      linkedin: '#',
+      instagram: '#',
+      twitter: '#',
+    },
+  }
 ];
 
 const Team = () => {
