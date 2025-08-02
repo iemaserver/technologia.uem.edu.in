@@ -1,8 +1,9 @@
 {
   "files": {
-    "main.css": "/technologia/static/css/main.ede8dceb.css",
-    "main.js": "/technologia/static/js/main.f7ba767a.js",
+    "main.css": "/technologia/static/css/main.a90befc1.css",
+    "main.js": "/technologia/static/js/main.bc01fb89.js",
     "static/js/453.84635ca7.chunk.js": "/technologia/static/js/453.84635ca7.chunk.js",
+    "static/media/WEBSITE_CARD_BG.png": "/technologia/static/media/WEBSITE_CARD_BG.21db52aa1803a53d00f1.png",
     "static/media/Sequence 01148.png": "/technologia/static/media/Sequence 01148.4006ef05f070e8cc961c.png",
     "static/media/Sequence 01147.png": "/technologia/static/media/Sequence 01147.19402c5518e0acf810dc.png",
     "static/media/Sequence 01145.png": "/technologia/static/media/Sequence 01145.21100993e248392230fd.png",
@@ -176,7 +177,6 @@
     "static/media/Sequence 0115.png": "/technologia/static/media/Sequence 0115.0b2977be1a0a55546d12.png",
     "static/media/Sequence 01014.png": "/technologia/static/media/Sequence 01014.0b57d7e3e86091445f75.png",
     "static/media/Sequence 0114.png": "/technologia/static/media/Sequence 0114.0b57d7e3e86091445f75.png",
-    "static/media/logo.png": "/technologia/static/media/logo.8d6f574e39764f632a1d.png",
     "static/media/Sequence 01016.png": "/technologia/static/media/Sequence 01016.4cdbce3a7f5b2c5c510f.png",
     "static/media/Sequence 0116.png": "/technologia/static/media/Sequence 0116.4cdbce3a7f5b2c5c510f.png",
     "static/media/Sequence 01013.png": "/technologia/static/media/Sequence 01013.d92b8b923d0be17c2e21.png",
@@ -208,14 +208,15 @@
     "static/media/Sequence 0100.png": "/technologia/static/media/Sequence 0100.05ce6b6563bf523eae89.png",
     "static/media/Sequence 01000.png": "/technologia/static/media/Sequence 01000.05ce6b6563bf523eae89.png",
     "static/media/loader2.png": "/technologia/static/media/loader2.61b9abb52a87833a3873.png",
+    "static/media/logo.png": "/technologia/static/media/logo.c4c6348379279bb8d169.png",
     "static/media/loader1.png": "/technologia/static/media/loader1.b1e501b01b2a7818214c.png",
     "index.html": "/technologia/index.html",
-    "main.ede8dceb.css.map": "/technologia/static/css/main.ede8dceb.css.map",
-    "main.f7ba767a.js.map": "/technologia/static/js/main.f7ba767a.js.map",
+    "main.a90befc1.css.map": "/technologia/static/css/main.a90befc1.css.map",
+    "main.bc01fb89.js.map": "/technologia/static/js/main.bc01fb89.js.map",
     "453.84635ca7.chunk.js.map": "/technologia/static/js/453.84635ca7.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.ede8dceb.css",
-    "static/js/main.f7ba767a.js"
+    "static/css/main.a90befc1.css",
+    "static/js/main.bc01fb89.js"
   ]
 }
