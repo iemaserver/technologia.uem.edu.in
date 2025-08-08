@@ -2,9 +2,9 @@ import React, { useEffect, useRef } from 'react';
 import Section from './Section';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import {
-  FaStar, FaUtensils, FaBookOpen, FaTshirt, FaHeart, FaGraduationCap, FaGamepad
-} from 'react-icons/fa';
+// import {
+//   FaStar, FaUtensils, FaBookOpen, FaTshirt, FaHeart, FaGraduationCap, FaGamepad
+// } from 'react-icons/fa';
 import './Partner.css';
 
 // Import your sticker images from the assets folder

@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { FiMenu, FiX } from 'react-icons/fi';
 import './Header.css';
 import logo from './assets/logo.png'; // Your static logo
+import tlogo from './assets/technologia_logo.png'; // Your static logo
+
 // import AnimatedLogo from './AnimatedLogo'; // Import the new animated logo
 
 const Header = ({ setActiveScreen }) => {
@@ -17,7 +19,11 @@ const Header = ({ setActiveScreen }) => {
       {/* Wrapper for all left-aligned items */}
       <div className="header-left">
         <div className="header-logo" onClick={() => handleNavClick('home')}>
-          <img src={logo} alt="Technologia Logo" />
+          <div className="logo-container">
+            <img src={logo} alt="UEM Logo" className="logo-image" />
+            <div className="logo-divider"></div>
+            <img src={tlogo} alt="Technologia Logo" className="logo-image" />
+          </div>
         </div>
         {/* The new animated logo component */}
         {/* <AnimatedLogo /> */}

@@ -33,10 +33,23 @@
   flex-shrink: 0;
 }
 
-.header-logo img {
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-image {
   height: 45px;
   width: auto;
   object-fit: contain;
+}
+
+.logo-divider {
+  height: 35px;
+  width: 1px;
+  background-color: #ffffff;
+  margin: 0 5px;
 }
 
 .header-title {

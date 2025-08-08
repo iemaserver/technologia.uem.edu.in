@@ -8,11 +8,12 @@ import logo from './assets/logo.png';
 import cardBackground from './assets/WEBSITE_CARD_BG.png';
 
 const teamMembers = [
+  
   {
-    name: 'Jarjis Alam',
-    japaneseName: 'ジャージス・アラム',
-    position: 'Lead Designer',
-    photo: logo,
+    name: 'Ananta Pathak',
+    japaneseName: 'アナンタ・パタク',
+    position: 'Shikigami Tactician',
+    photo: 'https://placehold.co/300x300/1a1a2e/e94560?text=Ananta',
     socials: {
       linkedin: '#',
       instagram: '#',
@@ -26,19 +27,8 @@ const teamMembers = [
     photo: 'https://placehold.co/300x300/1a1a2e/e94560?text=Rajeet',
     socials: {
       linkedin: 'https://www.linkedin.com/in/rajeet-ash',
-      twitter: 'https://x.com/RajeetAsh',
-      instagram: '#',
-    },
-  },
-  {
-    name: 'Ananta Pathak',
-    japaneseName: 'アナンタ・パタク',
-    position: 'Shikigami Tactician',
-    photo: 'https://placehold.co/300x300/1a1a2e/e94560?text=Ananta',
-    socials: {
-      linkedin: '#',
-      instagram: '#',
-      twitter: '#',
+      twitter: 'https://www.x.com/RajeetAsh',
+      instagram: 'https://www.instagram.com/r_a_j_e_e_t_',
     },
   },
   {
@@ -46,6 +36,28 @@ const teamMembers = [
     japaneseName: 'ラナスリヤーヤ・ゴッショ',
     position: 'Shikigami Tactician',
     photo: 'https://placehold.co/300x300/1a1a2e/e94560?text=Ranasurya',
+    socials: {
+      linkedin: '#',
+      instagram: '#',
+      twitter: '#',
+    },
+  },
+  {
+    name: 'Jarjis Alam',
+    japaneseName: 'ジャージス・アラム',
+    position: 'Lead Designer',
+    photo: 'https://placehold.co/300x300/1a1a2e/e94560?text=Jarjis',
+    socials: {
+      linkedin: '#',
+      instagram: '#',
+      twitter: '#',
+    },
+  },
+  {
+    name: "Ayushman Achariya",
+    japaneseName: "アユッシマン・アチリヤ",
+    position: "Lead Designer",
+    photo: 'https://placehold.co/300x300/1a1a2e/e94560?text=Ananta',
     socials: {
       linkedin: '#',
       instagram: '#',
