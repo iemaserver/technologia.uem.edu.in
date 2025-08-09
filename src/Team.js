@@ -4,7 +4,7 @@ import './Team.css';
 import { FaLinkedin, FaInstagram } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
 import { gsap } from 'gsap';
-import logo from './assets/logo.png';
+// import logo from './assets/logo.png';
 import cardBackground from './assets/WEBSITE_CARD_BG.png';
 
 const teamMembers = [
@@ -143,7 +143,7 @@ const Team = () => {
               <div className="card-content-new">
                 <div className="top-text">
                   <p className="member-position-new">{member.position}</p>
-                  <span className="japanese-seal">がいそくみらりらきにちちち</span>
+                  {/* <span className="japanese-seal">がいそくみらりらきにちちち</span> */}
                 </div>
                 <div className="photo-container-new">
                   <img src={member.photo} alt={member.name} />
