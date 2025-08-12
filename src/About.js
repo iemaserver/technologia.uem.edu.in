@@ -86,9 +86,9 @@ const About = () => {
   return (
     <div className="about-container" ref={containerRef}>
       <div className="about-content" ref={contentRef}>
-        <h2 className="about-title" ref={titleRef}>The Lore of Technologiaaa</h2>
+        <h2 className="about-title" ref={titleRef}>The Lore of Technologia</h2>
         <p className="about-line" ref={line1Ref}>
-          In an age where technology is the ultimate magic, Technologiaaa is the grand tournament where legends are born.
+          In an age where technology is the ultimate magic, Technologia is the grand tournament where legends are born.
         </p>
         <p className="about-line" ref={line2Ref}>
           We summon coders, designers, and visionaries to an 8-hour challenge.
