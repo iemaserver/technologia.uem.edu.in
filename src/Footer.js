@@ -32,8 +32,8 @@ const Footer = () => {
         <div className="footer-section">
           <h3>連絡先 <span className="japanese-subtitle">Contacts</span></h3>
           <div className="contact-info">
-            <p><strong>Avik Agrarwala:</strong> 8101531919</p>
-            <p><strong>Alik Agrawala:</strong> 9733502597</p>
+            <p><strong>Rajeet Ash:</strong> +91 9330515069</p>
+            {/* <p><strong>Alik Agrawala:</strong> 9733502597</p> */}
             <p className="japanese-text">📞 お問い合わせ</p>
           </div>
         </div>
