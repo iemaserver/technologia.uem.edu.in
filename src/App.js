@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Header from './Header';
+import Footer from './Footer';
 import InteractiveBackground from './InteractiveBackground';
 import ThreeBackground from './ThreeBackground';
 import CustomCursor from './CustomCursor';
@@ -59,6 +60,8 @@ function App() {
           <main className="App-body">
             {renderScreen()}
           </main>
+          <Footer />
+
         </>
       )}
     </div>
