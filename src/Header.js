@@ -28,7 +28,7 @@ const Header = ({ setActiveScreen }) => {
         {/* The new animated logo component */}
         {/* <AnimatedLogo /> */}
         <h1 className="header-title" onClick={() => handleNavClick('home')}>
-          Technologiaaa
+          Technologia
         </h1>
       </div>
 

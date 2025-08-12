@@ -116,7 +116,9 @@
   color: #fff;
   margin: 0;
   text-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
+  letter-spacing: 2px;
 }
+
 
 .member-name-japanese {
   font-family: 'Naganoshi', sans-serif;
