@@ -1,9 +1,9 @@
 /* Footer Styles */
 .footer {
-  background-color: #0a0a0a;
+  background-color: #0a0a0a59;
   color: #e0e0e0;
   padding: 40px 0 20px 0;
-  border-top: 2px solid #e94560;
+  border-top: 2px solid #e945603b;
   margin-top: auto;
   position: relative;
   overflow: hidden;
@@ -160,3 +160,93 @@
   .japanese-text { font-size: 0.7em; }
   .english-text { font-size: 0.65em; }
 }
+
+/* Footer Styles */
+.footer {
+  background-color: #0a0a0aa5;
+  color: #e0e0e0;
+  padding: 20px 0 10px 0; /* reduced */
+  border-top: 2px solid #e94560bb;
+  margin-top: auto;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Keep background effects */
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 30%, rgba(233, 69, 96, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(255, 107, 53, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(233, 69, 96, 0.05) 0%, transparent 70%);
+  animation: backgroundPulse 8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* Anime particles remain unchanged */
+.anime-particle { position: absolute; font-size: 1.2em; opacity: 0.7; pointer-events: none; z-index: 1; }
+
+/* Footer layout */
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 3%; /* reduced side padding */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* slightly smaller min width */
+  gap: 20px; /* reduced gap */
+  position: relative;
+  z-index: 2;
+}
+
+.footer-section h3 {
+  color: #e94560;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.1em; /* slightly smaller */
+  font-weight: bold;
+  margin-bottom: 12px; /* reduced */
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-bottom: 2px solid #e94560;
+  padding-bottom: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+/* Remove Japanese subtitle & text completely */
+.japanese-subtitle, .japanese-text { display: none; }
+
+/* Compact links and info */
+.contact-info p { margin: 5px 0; font-size: 0.85em; padding-left: 18px; }
+.footer-links li { margin-bottom: 8px; }
+.footer-link { font-size: 0.85em; padding: 3px 0; }
+
+/* Compact social links */
+.social-links { gap: 8px; }
+.social-link { padding: 6px 0; font-size: 0.85em; gap: 8px; }
+
+/* Footer bottom compact */
+.footer-bottom {
+  margin-top: 15px; padding-top: 12px; gap: 12px;
+}
+.footer-bottom p { font-size: 0.8em; }
+
+/* Gaming status compact */
+.gaming-status { padding: 8px 3%; font-size: 0.75em; margin-top: 12px; }
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .footer-content { grid-template-columns: 1fr; gap: 15px; }
+  .social-links { flex-direction: row; flex-wrap: wrap; gap: 10px; }
+  .footer-bottom { flex-direction: column; gap: 8px; }
+}
+
+@media (max-width: 480px) {
+  .footer { padding: 15px 0 8px 0; }
+  .footer-content { padding: 0 2%; }
+  .uem-info { align-items: center; text-align: center; }
+  .anime-particle { display: none; }
+}
+

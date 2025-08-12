@@ -83,8 +83,8 @@ const Footer = () => {
       
       <div className="footer-bottom">
         <div className="sparkle sparkle-left">⚡</div>
-        <p>&copy; 2024 Technologia. All rights reserved.</p>
-        <p className="japanese-text">テクノロジア © 2024 全著作権所有</p>
+        <p>&copy; 2025 Technologia. All rights reserved.</p>
+        <p className="japanese-text">テクノロジア © 2025 全著作権所有</p>
         <div className="sparkle sparkle-right">⚡</div>
       </div>
       
