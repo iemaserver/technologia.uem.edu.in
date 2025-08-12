@@ -19,7 +19,7 @@ const Footer = () => {
       
       <div className="footer-content">
         <div className="footer-section">
-          <h3>主催者 <span className="japanese-subtitle">Organised By</span></h3>
+          <h3>Organised By <span className="japanese-subtitle">主催者</span></h3>
           <div className="uem-info">
             <div className="uem-logo">
               <img src={uemLogo} alt="UEM Logo" className="uem-logo-img" />
@@ -30,27 +30,27 @@ const Footer = () => {
         </div>
 
         <div className="footer-section">
-          <h3>連絡先 <span className="japanese-subtitle">Contacts</span></h3>
+          <h3>Contacts <span className="japanese-subtitle">連絡先</span></h3>
           <div className="contact-info">
-            <p><strong>Avik Agrarwala:</strong> 8101531919</p>
-            <p><strong>Alik Agrawala:</strong> 9733502597</p>
+            <p><strong>Rajeet Ash:</strong> +91 9330515069</p>
+            {/* <p><strong>Alik Agrawala:</strong> 9733502597</p> */}
             <p className="japanese-text">📞 お問い合わせ</p>
           </div>
         </div>
 
         <div className="footer-section">
-          <h3>リソース <span className="japanese-subtitle">Resources</span></h3>
+          <h3>Resources <span className="japanese-subtitle">リソース</span></h3>
           <ul className="footer-links">
-            <li><a href="#" className="footer-link">📝 アイデア提出テンプレート <span className="english-text">Idea Submission Template</span></a></li>
-            <li><a href="#" className="footer-link">📖 プレイヤーズガイド <span className="english-text">Players Guide</span></a></li>
-            <li><a href="#" className="footer-link">🤝 パートナーになる <span className="english-text">Become a Partner</span></a></li>
-            <li><a href="#" className="footer-link">⚔️ アリーナのルール <span className="english-text">Rules of the Arena</span></a></li>
-            <li><a href="#" className="footer-link">🏆 シーズン1ハッカソン <span className="english-text">Season 1 Hackathon</span></a></li>
+            <li><a href="#" className="footer-link">📝 Idea Submission Template <span className="japanese-text">アイデア提出テンプレート</span></a></li>
+            <li><a href="#" className="footer-link">📖 Players Guide <span className="japanese-text">プレイヤーズガイド</span></a></li>
+            <li><a href="#" className="footer-link">🤝 Become a Partner <span className="japanese-text">パートナーになる</span></a></li>
+            <li><a href="#" className="footer-link">⚔️ Rules of the Arena <span className="japanese-text">アリーナのルール</span></a></li>
+            <li><a href="#" className="footer-link">🏆 Season 1 Hackathon <span className="japanese-text">シーズン1ハッカソン</span></a></li>
           </ul>
         </div>
 
         <div className="footer-section">
-          <h3>ソーシャル <span className="japanese-subtitle">Socials</span></h3>
+          <h3>Socials <span className="japanese-subtitle">ソーシャル</span></h3>
           <div className="social-links">
             <a href="https://www.instagram.com/technologiaa.india?igsh=NTl3eWh6bmRqdHU5" className="social-link" target='_blank' rel="noopener noreferrer">
               <FaInstagram />
