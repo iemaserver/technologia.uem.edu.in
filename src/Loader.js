@@ -44,7 +44,7 @@ const Loader = ({ onLoaded }) => {
       // Hold for a moment, then fade everything out
       .to(containerRef.current, {
         duration: 1,
-        opacity: 0,
+        opacity: 0,  // Changed from 100 to 0 for fade to black
         ease: 'power2.in',
       }, "+=1.5");
 

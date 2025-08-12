@@ -1,41 +1,81 @@
-/* Wrapper for the vertical timeline */
+/* --- Countdown Timer Styles --- */
+.countdown-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.5em;
+  color: #c0c0c0;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.countdown-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 60px;
+}
+
+.countdown-box {
+  background-color: rgba(22, 33, 62, 0.7);
+  border: 1px solid rgba(0, 170, 255, 0.3);
+  border-radius: 10px;
+  padding: 15px 25px;
+  text-align: center;
+  backdrop-filter: blur(5px);
+}
+
+.countdown-number {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 3em;
+  color: #e94560;
+  display: block;
+  line-height: 1;
+}
+
+.countdown-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9em;
+  color: #c0c0c0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* --- Timeline Wrapper --- */
 .timeline-wrapper {
   width: 100%;
-  max-width: 1000px; /* Increased max-width for desktop */
+  max-width: 1000px;
   margin: 0 auto;
   padding: 40px 0;
 }
 
-/* The main container for the timeline items */
 .timeline-container {
   display: flex;
   flex-direction: column;
   position: relative;
 }
 
-/* The vertical axis line */
+/* Timeline line */
 .timeline-container::before {
   content: '';
   position: absolute;
-  top: 0;
-  height: 100%;
+  /* Start from first node's vertical center */
+  top: 40px; /* Matches ~20px padding + half circle height */
   width: 4px;
   background-color: rgba(233, 69, 96, 0.4);
-  /* --- MOBILE FIRST --- */
-  left: 20px; /* Default position for mobile */
+  left: 20px; /* Mobile position */
   transform: translateX(-50%);
+  height: calc(100% - 190px); /* Stop before last card */
 }
 
-/* Individual timeline event item */
+
+/* Timeline item */
 .timeline-item {
   position: relative;
   width: 100%;
-  /* --- MOBILE FIRST --- */
-  padding: 20px 0 20px 50px; /* Default padding for mobile */
+  padding: 20px 0 20px 50px; /* mobile padding */
   box-sizing: border-box;
 }
 
-/* The node on the central axis */
+/* Node circle */
 .timeline-item::before {
   content: '';
   position: absolute;
@@ -47,9 +87,8 @@
   border-radius: 50%;
   z-index: 1;
   transition: background-color 0.3s ease, border-color 0.3s ease;
-  /* --- MOBILE FIRST --- */
-  left: 20px; /* Default position for mobile */
-  transform: translate(-50%, -50%); /* This correctly centers the circle on the line */
+  left: 20px;
+  transform: translate(-50%, -50%);
 }
 
 .timeline-item:hover::before {
@@ -57,7 +96,7 @@
   border-color: #fff;
 }
 
-/* The content card for each event */
+/* Content card */
 .timeline-content {
   background-color: rgba(22, 33, 62, 0.7);
   border: 1px solid rgba(233, 69, 96, 0.3);
@@ -73,7 +112,7 @@
   box-shadow: 0 10px 30px rgba(233, 69, 96, 0.4);
 }
 
-/* Styling for the content inside the cards */
+/* Event text */
 .event-date {
   font-size: 0.9em;
   color: #e94560;
@@ -96,34 +135,41 @@
   margin: 0;
 }
 
-/* --- DESKTOP STYLES: Alternating Timeline --- */
+/* --- Desktop Alternating Layout --- */
 @media (min-width: 769px) {
-  /* Center the line on desktop */
   .timeline-container::before {
     left: 50%;
+    top: 40px; /* Same logic, start from first node center */
+    height: calc(100% - 190px); /* Adjust gap for last card */
   }
 
-  /* Adjust item width and remove mobile padding */
   .timeline-item {
     width: 50%;
     padding: 20px 40px;
   }
 
-  /* Position the node on the edge of the item, aligned with the center line */
   .timeline-item::before {
     left: 100%;
   }
 
-  /* Alternate items to the right side */
   .timeline-item:nth-child(even) {
-    align-self: flex-end; /* Push the item to the right */
+    align-self: flex-end;
   }
 
   .timeline-item:nth-child(even)::before {
     left: 0;
   }
-  
-  .timeline-item:nth-child(even) .timeline-content {
-    text-align: left;
+
+  /* Last item centered and without node */
+  .timeline-item:last-child {
+    align-self: center !important;
+    width: 100% !important;
+    padding: 20px 40px !important;
+    max-width: 1000px;
+    padding-bottom: 0;
+  }
+
+  .timeline-item:last-child::before {
+    display: none;
   }
 }
