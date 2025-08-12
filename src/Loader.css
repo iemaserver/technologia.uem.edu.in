@@ -1,76 +1,73 @@
-/* Overall loader container */
-.loader-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  width: 100vw;
-  background: #1a1a2e;
-  overflow: hidden;
+/* Import a pixelated font for the background */
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+.loader-container-quotes {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 9999;
-  font-family: 'Orbitron', sans-serif;
-  color: #e0e0e0;
-  /* GSAP will control opacity/visibility */
-}
-
-/* --- Shockwave Effect --- */
-/* A pseudo-element for the shockwave, controlled by GSAP variables */
-.loader-container::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 100px;
-    height: 100px;
-    background: transparent;
-    border-radius: 50%;
-    border: 3px solid #e94560;
-    transform: translate(-50%, -50%) scale(var(--shockwave-scale, 0));
-    opacity: var(--shockwave-opacity, 0);
-    will-change: transform, opacity;
-}
-
-/* Stage for the animation elements */
-.animation-stage {
+  width: 100vw;
+  height: 100vh;
+  background-color: #1a1a2e;
   display: flex;
-  align-items: center;
   justify-content: center;
-  height: 200px;
-  position: relative;
-  width: 500px;
+  align-items: center;
+  z-index: 10000;
+  overflow: hidden;
 }
 
-/* Base styles for all loader images and signs */
-.loader-image, .plus-sign {
+/* Container for the pixelated background quotes */
+.quote-background {
   position: absolute;
-  /* GSAP will control visibility */
-  visibility: visible;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  gap: 10px 20px;
+  opacity: 0.05; /* Make it very subtle */
+  filter: blur(2px);
+  transform: scale(1.1);
 }
 
-.loader-image {
-  width: 120px;
-  height: 120px;
-  object-fit: contain;
+.quote-background p {
+  font-family: 'VT323', monospace;
+  font-size: 2em;
+  color: #00aaff;
+  margin: 0;
+  /* Beveled text effect */
+  text-shadow: 1px 1px 0px #0055aa, 2px 2px 0px #003366;
+  animation: fadeInOut 5s infinite alternate;
+  animation-delay: var(--delay);
+  white-space: nowrap;
 }
 
-.plus-sign {
-  font-size: 4rem;
-  color: #e94560;
-  font-weight: bold;
+@keyframes fadeInOut {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
-/* Initial positions for the elements before GSAP animates them */
-.loader-image.one { transform: translateX(-150px); }
-.loader-image.two { transform: translateX(150px); }
-
-/* Text styling */
-.loader-text {
-  margin-top: 30px;
-  font-size: 1.5rem;
+/* Main content that appears on top of the background */
+.quote-content {
+  position: relative;
+  z-index: 1;
   text-align: center;
-  letter-spacing: 1px;
+  padding: 20px;
+  max-width: 800px;
+}
+
+.loader-logo {
+  width: 150px;
+  margin-bottom: 30px;
+  filter: drop-shadow(0 0 15px #7e69dd);
+}
+
+.main-quote {
+  font-family: 'Yuji Syuku', serif;
+  font-size: 2.5em;
+  color: #e0e0e0;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+  margin: 0 0 15px;
 }
