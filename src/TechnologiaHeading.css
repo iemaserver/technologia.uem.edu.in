@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Zen+Dots:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;700&display=swap');
+
+/* -- NEW: Added @font-face rule to load your local font -- */
+@font-face {
+  font-family: 'The Last Shuriken';
+  /* Ensure the path is correct relative to this CSS file.
+    You might need to adjust the path and add the correct file extension (.ttf, .otf, .woff2, etc.)
+  */
+  src: url('./assets/fonts/The Last Shuriken.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+.technologia-heading-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+  perspective: 1000px;
+  overflow: visible;
+}
+
+.heading-wrapper {
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease-out;
+  z-index: 10;
+}
+
+.technologia-title {
+  margin: 0;
+  /* -- MODIFIED: Added "The Last Shuriken" as the primary font -- */
+  font-family: 'The Last Shuriken', 'Chakra Petch', 'Zen Dots', 'Noto Sans JP', monospace;
+  font-weight: 700;
+  font-size: 5rem;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+}
+
+/*-- Style for the "Tech" part with red glow --*/
+.title-tech {
+  color: red;
+  text-shadow: 0 0 0px #ff4757, 0 0 2px #ff4757, 0 0 3px #ff4757, 0 0 2px #ff1a1a;
+  animation: red-glow-pulse 2s ease-in-out infinite;
+}
+
+/*-- Style for the "logia" part --*/
+.title-logia {
+  color: #ffffff;
+  padding-right: 0.5em; /* Add some space before the version number */
+}
+
+/*-- "1.0" now has the gradient effect --*/
+.title-version {
+  font-size: 5rem; /* Match the main title size */
+  font-weight: 700;
+  background: linear-gradient(
+    45deg,
+    #ff6b6b,
+    #4ecdc4,
+    #45b7d1,
+    #96ceb4,
+    #feca57,
+    #ff9ff3,
+    #54a0ff
+  );
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient-shift 4s ease-in-out infinite, text-float 3s ease-in-out infinite;
+  position: relative;
+}
+
+/* ... rest of the CSS remains the same ... */
+
+/* Neon Text Glow Effects (Unchanged) */
+.neon-text-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4);
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: neon-rotate 3s linear infinite;
+  z-index: 1;
+  opacity: 0;
+  filter: blur(2px);
+}
+
+.neon-glow-2 {
+  background: linear-gradient(45deg, #feca57, #ff9ff3, #54a0ff, #ff6b6b);
+  animation-direction: reverse;
+  filter: blur(4px);
+}
+
+.neon-glow-3 {
+  background: linear-gradient(45deg, #96ceb4, #feca57, #ff9ff3, #54a0ff);
+  animation-duration: 4s;
+  filter: blur(6px);
+}
+
+/* Keyframe Animations */
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes text-float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+}
+
+/* @keyframes red-glow-pulse {
+  0%, 100% { text-shadow: 0 0 0px #ff4757, 0 0 2px #ff4757, 0 0 3px #ff4757, 0 0 5px #ff1a1a; }
+  50% { text-shadow: 0 0 2px #ff4757, 0 0 10px #ff4757, 0 0 15px #ff4757, 0 0 30px #ff1a1a; }
+} */
+
+@keyframes neon-rotate {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+/* Glow and Particle Effects (Unchanged but hidden by default) */
+.glow-effect, .particle-container, .particle {
+  display: none;
+}
+
+@keyframes particle-float {
+  0% { transform: translateY(0) scale(0) rotate(0deg); opacity: 0; }
+  20%, 80% { opacity: 1; }
+  100% { transform: translateY(-80px) scale(1) rotate(360deg); opacity: 0; }
+}
+
+/* Hover Effects */
+.heading-wrapper:hover .title-version {
+  animation: gradient-shift 2s ease-in-out infinite, text-float 1.5s ease-in-out infinite;
+}
+
+.heading-wrapper:hover .neon-text-glow {
+  animation-duration: 1.5s;
+}
+.heading-wrapper:hover .neon-glow-2 {
+  animation-duration: 1.5s;
+}
+.heading-wrapper:hover .neon-glow-3 {
+  animation-duration: 2s;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .technologia-title, .title-version {
+    font-size: 3rem;
+    letter-spacing: 0.1em;
+  }
+}
+
+@media (max-width: 480px) {
+  .technologia-title, .title-version {
+    font-size: 2.2rem;
+    letter-spacing: 0.05em;
+  }
+}

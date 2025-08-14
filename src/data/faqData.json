@@ -1,0 +1,52 @@
+[
+  {
+    "id": 1,
+    "question": "Who can participate?",
+    "answer": "Current students from IEM Newtown Campus and IEM Saltlake Campus are eligible to participate."
+  },
+  {
+    "id": 2,
+    "question": "What is the maximum/minimum team size?",
+    "answer": "Teams can range in size from 1 to 4 participants."
+  },
+  {
+    "id": 3,
+    "question": "Are cross-institutional teams between both campuses allowed?",
+    "answer": "Yes. Teams can be formed with students from either of the two campuses."
+  },
+  {
+    "id": 4,
+    "question": "Can I participate solo?",
+    "answer": "While we encourage teamwork, if you prefer to participate solo, you're welcome to do so."
+  },
+  {
+    "id": 5,
+    "question": "What is the participation fee?",
+    "answer": "Technologia Hackathon is completely free to register."
+  },
+  {
+    "id": 6,
+    "question": "What is the theme of this Hackathon?",
+    "answer": "This is an open innovation hackathon. Participants will define their own problem statements and propose innovative solutions."
+  },
+  {
+    "id": 7,
+    "question": "Where will the grand finale be held?",
+    "answer": "The grand finale will be hosted at: University of Engineering and Management, University Area, Action Area III, Newtown, Kolkata – 700160."
+  },
+  {
+    "id": 8,
+    "question": "Can I participate remotely?",
+    "answer": "Yes. The idea submission round will be conducted online, allowing remote participation. However, the grand finale is an offline event and participants must be physically present."
+  },
+  {
+    "id": 9,
+    "question": "Are we allowed to leave the campus before the conclusion of the hackathon?",
+    "answer": "No. Participants must remain on campus until the hackathon concludes. Leaving early will result in disqualification, as midway evaluations will take place."
+  },
+  {
+    "id": 10,
+    "question": "If we have any queries, where should we reach out?",
+    "answer": "Feel free to join our Discord server for any further queries or clarifications."
+  }
+]

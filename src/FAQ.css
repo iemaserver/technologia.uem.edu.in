@@ -1,0 +1,209 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+@font-face {
+  font-family: 'Gotham Pro';
+  src: url('./assets/fonts/GothamPro-Black.woff') format('woff');
+  font-weight: 900;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Poppins Custom';
+  src: url('./assets/fonts/poppins.bold-italic.ttf') format('truetype');
+  font-weight: bold;
+  font-style: italic;
+}
+.faq-container {
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.faq-item {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(233, 69, 96, 0.3);
+  border-radius: 12px;
+  margin-bottom: 16px;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.faq-item:hover {
+  transform: translateY(-2px);
+  border-color: rgba(233, 69, 96, 0.6);
+  box-shadow: 0 8px 30px rgba(233, 69, 96, 0.2);
+}
+
+.faq-question {
+  padding: 20px 24px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Poppins Custom', sans-serif;
+  font-weight: 600;
+  font-size: 1.1em;
+  color: #e0e0e0;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.faq-question::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  font-family: 'Poppins Custom', sans-serif;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(233, 69, 96, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.faq-question:hover::before {
+  left: 100%;
+}
+
+.faq-question:hover {
+  color: #e94560;
+  background: rgba(233, 69, 96, 0.05);
+}
+
+.faq-icon {
+  width: 24px;
+  height: 24px;
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  flex-shrink: 0;
+}
+
+.faq-icon::before,
+.faq-icon::after {
+  content: '';
+  position: absolute;
+  background: #e94560;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.faq-icon::before {
+  width: 2px;
+  height: 16px;
+  top: 4px;
+  left: 11px;
+}
+
+.faq-icon::after {
+  width: 16px;
+  height: 2px;
+  top: 11px;
+  left: 4px;
+}
+
+.faq-item.active .faq-icon::before {
+  transform: rotate(90deg);
+  opacity: 0;
+}
+
+.faq-item.active .faq-icon {
+  transform: rotate(45deg);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  background: rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transform: translateY(-10px);
+  font-family: 'Gotham Pro', sans-serif;
+}
+
+.faq-item.active .faq-answer {
+  max-height: 200px;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.faq-answer-content {
+  padding: 0 24px 20px;
+  color: #c0c0c0;
+  font-size: 1em;
+  line-height: 1.6;
+  font-family: 'Poppins Custom', sans-serif;
+}
+
+/* Animation for FAQ items appearing */
+.faq-item {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: slideInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.faq-item:nth-child(1) { animation-delay: 0.1s; }
+.faq-item:nth-child(2) { animation-delay: 0.2s; }
+.faq-item:nth-child(3) { animation-delay: 0.3s; }
+.faq-item:nth-child(4) { animation-delay: 0.4s; }
+.faq-item:nth-child(5) { animation-delay: 0.5s; }
+.faq-item:nth-child(6) { animation-delay: 0.6s; }
+.faq-item:nth-child(7) { animation-delay: 0.7s; }
+.faq-item:nth-child(8) { animation-delay: 0.8s; }
+.faq-item:nth-child(9) { animation-delay: 0.9s; }
+.faq-item:nth-child(10) { animation-delay: 1.0s; }
+
+@keyframes slideInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Glow effect for active items */
+.faq-item.active {
+  border-color: #e94560;
+  box-shadow: 0 8px 30px rgba(233, 69, 96, 0.3), 0 0 20px rgba(233, 69, 96, 0.1);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .faq-container {
+    max-width: 95%;
+  }
+  
+  .faq-question {
+    padding: 16px 20px;
+    font-size: 1em;
+  }
+  
+  .faq-answer-content {
+    padding: 0 20px 16px;
+    font-size: 0.95em;
+  }
+  
+  .faq-icon {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .faq-icon::before {
+    height: 14px;
+    top: 3px;
+    left: 9px;
+  }
+  
+  .faq-icon::after {
+    width: 14px;
+    top: 9px;
+    left: 3px;
+  }
+}
+
+/* Hover effects for better interactivity */
+.faq-item:hover .faq-icon::before,
+.faq-item:hover .faq-icon::after {
+  background: #ff6b7a;
+}
+
+.faq-item.active .faq-icon::after {
+  background: #ff6b7a;
+}
