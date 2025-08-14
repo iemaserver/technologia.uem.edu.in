@@ -25,6 +25,7 @@ const Footer = () => {
               <img src={uemLogo} alt="UEM Logo" className="uem-logo-img" />
             </div>
             <p className="uem-name">University Of Engineering and Management, Kolkata</p>
+            <p className="uem-address">Department Of Robotics & AI</p>
           </div>
         </div>
 

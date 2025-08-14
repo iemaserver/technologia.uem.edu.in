@@ -37,7 +37,8 @@ const Partners = () => {
       { name: 'Neko Neko', logo: 'https://i.imgur.com/VgLQqHh.png', url: '#' }
     ],
     technical: [
-      { name: 'Not Zero', logo: notzero, url: '#' },
+      { name: 'Not Zero', logo: notzero },
+
     ]
   };
 

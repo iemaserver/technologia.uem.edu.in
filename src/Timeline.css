@@ -1,7 +1,7 @@
-/* --- Countdown Timer Styles --- */
+/* --- Base Styles & Countdown Timer --- */
 .countdown-title {
   font-family: 'Orbitron', sans-serif;
-  font-size: 1.5em;
+  font-size: 1.2em;
   color: #c0c0c0;
   text-align: center;
   margin-bottom: 20px;
@@ -10,22 +10,24 @@
 .countdown-container {
   display: flex;
   justify-content: center;
-  gap: 20px;
-  margin-bottom: 60px;
+  gap: 10px;
+  margin-bottom: 50px;
+  flex-wrap: wrap;
 }
 
 .countdown-box {
   background-color: rgba(22, 33, 62, 0.7);
   border: 1px solid rgba(0, 170, 255, 0.3);
   border-radius: 10px;
-  padding: 15px 25px;
+  padding: 10px 15px;
   text-align: center;
   backdrop-filter: blur(5px);
+  min-width: 70px;
 }
 
 .countdown-number {
   font-family: 'Orbitron', sans-serif;
-  font-size: 3em;
+  font-size: 2em;
   color: #e94560;
   display: block;
   line-height: 1;
@@ -33,18 +35,18 @@
 
 .countdown-label {
   font-family: 'Inter', sans-serif;
-  font-size: 0.9em;
+  font-size: 0.7em;
   color: #c0c0c0;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
 
-/* --- Timeline Wrapper --- */
+/* --- Timeline Wrapper & Mobile Styles --- */
 .timeline-wrapper {
   width: 100%;
   max-width: 1000px;
   margin: 0 auto;
-  padding: 40px 0;
+  padding: 20px 0;
 }
 
 .timeline-container {
@@ -53,37 +55,34 @@
   position: relative;
 }
 
-/* Timeline line */
+/* Vertical line for mobile */
 .timeline-container::before {
   content: '';
   position: absolute;
-  /* Start from first node's vertical center */
-  top: 40px; /* Matches ~20px padding + half circle height */
-  width: 4px;
+  top: 40px; 
+  width: 3px;
   background-color: rgba(233, 69, 96, 0.4);
-  left: 20px; /* Mobile position */
+  left: 20px;
   transform: translateX(-50%);
-  height: calc(100% - 190px); /* Stop before last card */
+  height: calc(100% - 190px);
 }
 
-
-/* Timeline item */
 .timeline-item {
   position: relative;
   width: 100%;
-  padding: 20px 0 20px 50px; /* mobile padding */
+  padding: 15px 0 15px 45px;
   box-sizing: border-box;
 }
 
-/* Node circle */
+/* Node circle for mobile */
 .timeline-item::before {
   content: '';
   position: absolute;
   top: 50%;
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
   background-color: #16213e;
-  border: 4px solid rgba(233, 69, 96, 0.6);
+  border: 3px solid rgba(233, 69, 96, 0.6);
   border-radius: 50%;
   z-index: 1;
   transition: background-color 0.3s ease, border-color 0.3s ease;
@@ -96,12 +95,11 @@
   border-color: #fff;
 }
 
-/* Content card */
 .timeline-content {
   background-color: rgba(22, 33, 62, 0.7);
   border: 1px solid rgba(233, 69, 96, 0.3);
   backdrop-filter: blur(8px);
-  padding: 20px;
+  padding: 15px;
   border-radius: 10px;
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
   text-align: left;
@@ -112,9 +110,8 @@
   box-shadow: 0 10px 30px rgba(233, 69, 96, 0.4);
 }
 
-/* Event text */
 .event-date {
-  font-size: 0.9em;
+  font-size: 0.8em;
   color: #e94560;
   font-weight: bold;
   display: block;
@@ -123,44 +120,80 @@
 
 .event-title {
   font-family: 'Orbitron', sans-serif;
-  font-size: 1.3em;
+  font-size: 1.1em;
   color: #e0e0e0;
   margin: 0 0 10px;
 }
 
 .event-description {
-  font-size: 0.9em;
+  font-size: 0.85em;
   color: #c0c0c0;
   line-height: 1.5;
   margin: 0;
 }
 
-/* --- Desktop Alternating Layout --- */
+/* --- Desktop Layout (overrides mobile styles) --- */
 @media (min-width: 769px) {
-  .timeline-container::before {
-    left: 50%;
-    top: 40px; /* Same logic, start from first node center */
-    height: calc(100% - 190px); /* Adjust gap for last card */
+  /* Restore original sizes for countdown */
+  .countdown-title {
+    font-size: 1.5em;
+  }
+  .countdown-container {
+    gap: 20px;
+  }
+  .countdown-box {
+    padding: 15px 25px;
+  }
+  .countdown-number {
+    font-size: 3em;
+  }
+  .countdown-label {
+    font-size: 0.9em;
   }
 
+  /* Center the timeline line */
+  .timeline-container::before {
+    width: 4px;
+    left: 50%;
+    top: 40px;
+    height: calc(100% - 190px);
+  }
+
+  /* Alternating items */
   .timeline-item {
     width: 50%;
     padding: 20px 40px;
   }
-
-  .timeline-item::before {
-    left: 100%;
-  }
-
   .timeline-item:nth-child(even) {
     align-self: flex-end;
   }
 
+  /* Position nodes correctly for alternating layout */
+  .timeline-item::before {
+    width: 20px;
+    height: 20px;
+    border-width: 4px;
+    left: 100%;
+  }
   .timeline-item:nth-child(even)::before {
     left: 0;
   }
+  
+  /* Restore text sizes */
+  .timeline-content {
+    padding: 20px;
+  }
+  .event-date {
+    font-size: 0.9em;
+  }
+  .event-title {
+    font-size: 1.3em;
+  }
+  .event-description {
+    font-size: 0.9em;
+  }
 
-  /* Last item centered and without node */
+  /* Center the last item and hide its node */
   .timeline-item:last-child {
     align-self: center !important;
     width: 100% !important;

@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import Section from './Section';
 import './Team.css';
+// import './ScrollingRow.js'
 import { FaLinkedin, FaInstagram } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
 import { gsap } from 'gsap';
@@ -47,7 +48,13 @@ import photo34 from './assets/pfp/34.jpg';
 import photo35 from './assets/pfp/35.jpg';
 import photo36 from './assets/pfp/36.jpg';
 import photo37 from './assets/pfp/37.jpg';
+import photo38 from './assets/pfp/38.jpg';
+import photo39 from './assets/pfp/39.jpg';
+import photo40 from './assets/pfp/40.jpg';
+
+
 import RANU from './assets/pfp/RANU.jpg';
+// import ScrollingRow from './ScrollingRow.js';
 
 const photoMap = {
     './assets/pfp/1.jpg': RANU,
@@ -88,6 +95,11 @@ const photoMap = {
     './assets/pfp/35.jpg': photo35,
     './assets/pfp/36.jpg': photo36,
     './assets/pfp/37.jpg': photo37,
+    './assets/pfp/38.jpg': photo38,
+    './assets/pfp/39.jpg': photo39,
+    './assets/pfp/40.jpg': photo40,
+
+
 };
 
 // --- Individual Card Component ---
@@ -178,7 +190,10 @@ const Team = () => {
             position = 'Graphics Team';
         } else if (position.includes('Social Media')) {
             position = 'Social Media Team';
+        }else if(position.includes('Developer')){
+            position = 'Developer';
         }
+
 
         if (!acc[position]) {
             acc[position] = [];
@@ -189,6 +204,7 @@ const Team = () => {
 
     const sectionOrder = [
         'Organizing Team',
+        'Developer',
         'Core',
         'Graphics Team',
         'Social Media Team',
@@ -212,9 +228,11 @@ const Team = () => {
                     <div className="team-section" key={position}>
                         <h2 className="team-position-title">{position}</h2>
                         <div className="team-row">
-                            {members.map((member, index) => (
-                                <TeamMemberCard key={index} member={member} />
-                            ))}
+                            {/* <ScrollingRow> */}
+                                {members.map((member, index) => (
+                                    <TeamMemberCard key={index} member={member} />
+                                ))}
+                            {/* </ScrollingRow> */}
                         </div>
                     </div>
                 ))}

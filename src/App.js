@@ -13,6 +13,7 @@ import Team from './Team';
 import Partners from './Partners';
 import FAQ from './FAQ';
 import Guidance from './Guidance';
+// import ThreeBackground from './ThreeBackground';
 import './App.css';
 
 function App() {

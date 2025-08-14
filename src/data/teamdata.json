@@ -22,6 +22,18 @@
     }
   },
   {
+    
+    "name": "Rajeet Ash",
+    "japaneseName": "ラジート・アッシュ",
+    "position": "Developer Lead",
+    "photo": "./assets/pfp/33.jpg",
+    "socials": {
+      "instagram": "https://www.instagram.com/r_a_j_e_e_t_",
+      "twitter": "https://x.com/RajeetAsh",
+      "linkedin": "https://www.linkedin.com/in/rajeet-ash"
+    }
+  },
+  {
     "name": "Ranasurya Ghosh",
     "japaneseName": "ラナスーリヤ・ゴーシュ",
     "position": "Co-lead Organizer",
@@ -405,6 +417,28 @@
       "instagram": "https://www.instagram.com/user_r.banerjee?",
       "twitter": "https://x.com/rajdeep22173?s=21",
       "linkedin": "https://www.linkedin.com/in/banerjeerajdeep"
+    }
+  },
+  {
+    "name": "AyushMan Acharya",
+    "japaneseName": "アヤスハン・アチラヤ",
+    "position": "Developer",
+    "photo": "./assets/pfp/39.jpg",
+    "socials": {
+      "instagram": "https://www.instagram.com/dr_debug?igsh=YzBldmdqMjY0Y2Q1",
+      "twitter": "",
+      "linkedin": "https://www.linkedin.com/in/ayushman-acharya-b88314290?"
+    }
+  },
+   {
+    "name": "Mayank Sharma",
+    "japaneseName": "マヤンク・シャルマ",
+    "position": "Developer",
+    "photo": "./assets/pfp/40.jpg",
+    "socials": {
+      "instagram": "",
+      "twitter": "",
+      "linkedin": ""
     }
   }
 ]

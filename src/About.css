@@ -1,3 +1,4 @@
+/* --- Base (Mobile-First) Styles --- */
 .about-container {
   display: flex;
   flex-direction: column;
@@ -5,52 +6,84 @@
   align-items: center;
   min-height: 100vh;
   width: 100%;
-  background-color: rgba(0, 0, 25, 0.6); /* Start with a black background */
+  padding: 40px 15px; /* Optimized for less vertical space on mobile */
   color: #e0e0e0;
   text-align: center;
   overflow: hidden;
-  visibility: hidden; /* Hidden until GSAP makes it visible */
 }
 
 .about-content {
-  max-width: 800px;
-  padding: 20px;
+  max-width: 900px;
+  width: 100%; /* Ensure it uses available width */
 }
 
 .about-title {
   font-family: 'Orbitron', sans-serif;
-  font-size: 3.5em;
+  font-size: 2.2em; /* Optimized for mobile readability */
   color: #e94560;
   text-transform: uppercase;
-  letter-spacing: 3px;
-  margin-bottom: 50px;
+  letter-spacing: 2px; /* Slightly reduced for small screens */
+  margin-bottom: 40px;
   text-shadow: 0 0 15px rgba(233, 69, 96, 0.6);
-  visibility: hidden; /* GSAP will control this */
 }
 
 .about-line {
   font-family: 'Inter', sans-serif;
+  font-size: 1.1em; /* Optimized for mobile readability */
+  line-height: 1.7; /* Slightly tighter for mobile */
+  margin-bottom: 25px; /* Tighter spacing */
+  color: #c0c0d0;
+}
+
+.about-slogan {
+  font-family: 'Orbitron', sans-serif;
+  margin-top: 50px; /* Reduced top margin */
   font-size: 1.4em;
-  line-height: 1.8;
-  margin: 20px 0;
-  visibility: hidden; /* GSAP will control this */
-}
-
-.final-line {
-  margin-top: 60px;
-  font-size: 1.8em;
   font-weight: bold;
+  letter-spacing: 1px;
   color: #e94560;
+  text-shadow: 0 0 10px rgba(233, 69, 96, 0.8);
 }
 
-@media (max-width: 768px) {
+
+/* --- Tablet Styles --- */
+@media (min-width: 768px) {
+  .about-container {
+    padding: 50px 20px; /* Restore original padding */
+  }
+
   .about-title {
-    font-size: 2.5em;
+    font-size: 2.8em; /* Scale up for tablets */
+    letter-spacing: 3px;
   }
+
   .about-line {
-    font-size: 1.1em;
+    font-size: 1.2em;
+    line-height: 1.8;
   }
-  .final-line {
-    font-size: 1.4em;
+
+  .about-slogan {
+    font-size: 1.6em;
+    margin-top: 60px;
+  }
+}
+
+
+/* --- Desktop Styles --- */
+@media (min-width: 1024px) {
+  .about-title {
+    font-size: 3.5em; /* Full size for desktop */
+    margin-bottom: 60px;
+    text-shadow: 0 0 15px rgba(233, 69, 96, 0.6), 0 0 25px rgba(233, 69, 96, 0.4);
+  }
+
+  .about-line {
+    font-size: 1.3em;
+    margin-bottom: 35px;
+  }
+
+  .about-slogan {
+    font-size: 1.8em;
+    margin-top: 80px;
   }
 }

@@ -28,3 +28,9 @@ code {
   font-style: normal;
   font-display: swap;
 }
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
