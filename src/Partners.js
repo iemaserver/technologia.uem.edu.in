@@ -6,6 +6,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 //   FaStar, FaUtensils, FaBookOpen, FaTshirt, FaHeart, FaGraduationCap, FaGamepad
 // } from 'react-icons/fa';
 import './Partner.css';
+import notzero from './assets/not-zero-blue.png'
 
 // Import your sticker images from the assets folder
 // import sticker1 from './assets/sticker1.png';
@@ -34,6 +35,9 @@ const Partners = () => {
     merchandise: [
       { name: 'Akihabara Shop', logo: 'https://i.imgur.com/mT3QvC8.png', url: '#' },
       { name: 'Neko Neko', logo: 'https://i.imgur.com/VgLQqHh.png', url: '#' }
+    ],
+    technical: [
+      { name: 'Not Zero', logo: notzero, url: '#' },
     ]
   };
 
@@ -128,10 +132,12 @@ const Partners = () => {
         </div>
 
         <div className="partners-container">
-          {renderPartners('Community')}
+          {/* {renderPartners('Community')}
           {renderPartners('Food')}
           {renderPartners('Knowledge')}
-          {renderPartners('Merchandise')}
+          {renderPartners('Merchandise')} */}
+          {renderPartners('Technical')}
+
         </div>
       </div>
     </Section>

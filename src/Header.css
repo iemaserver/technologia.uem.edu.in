@@ -22,7 +22,8 @@
 }
 
 /* Logo and Title Styling */
-.header-logo, .header-title {
+.header-logo,
+.header-title {
   cursor: pointer;
 }
 
@@ -39,12 +40,16 @@
   gap: 10px;
 }
 
+/* ✅ Equal-sized logos */
 .logo-image {
   height: 45px;
-  width: auto;
+  width: 45px; /* Fixed width for uniform size */
   object-fit: contain;
-  border-radius: 5px;
-  /* filter: drop-shadow(0 0 25px #ffffff); */
+}
+
+/* Optional fine-tune for IEM logo */
+#iemlogo {
+  padding: 2px; /* adjust to visually match others */
 }
 
 .logo-divider {
@@ -100,14 +105,13 @@
   z-index: 1002;
 }
 
-
 /* --- Mobile Responsiveness --- */
 @media (max-width: 1024px) {
   .header-nav .nav-links {
     display: none;
   }
   .nav-menu-icon {
-    display: block; 
+    display: block;
   }
   .nav-menu-icon.menu-is-open {
     position: fixed;
@@ -116,7 +120,7 @@
     color: #ffffff;
   }
   .header-nav .nav-links.active {
-    display: flex; 
+    display: flex;
     position: fixed;
     top: 0;
     left: 0;

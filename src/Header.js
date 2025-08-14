@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { FiMenu, FiX } from 'react-icons/fi';
 import './Header.css';
 import logo from './assets/logo.png'; // Your static logo
-
 import tlogo from './assets/technologia_logo.png'; // Your static logo
+import iemLogo from './assets/iem_logo.png'; // Your static logo
 
 // import AnimatedLogo from './AnimatedLogo'; // Import the new animated logo
 
@@ -23,14 +23,13 @@ const Header = ({ setActiveScreen }) => {
           <div className="logo-container">
             <img src={logo} alt="UEM Logo" className="logo-image" />
             <div className="logo-divider"></div>
+            <img src={iemLogo} alt="IEM Logo" className="logo-image" id="iemlogo"/>
+            <div className="logo-divider"></div>
             <img src={tlogo} alt="Technologia Logo" className="logo-image" />
           </div>
         </div>
         {/* The new animated logo component */}
         {/* <AnimatedLogo /> */}
-        <h1 className="header-title" onClick={() => handleNavClick('home')}>
-          Technologia
-        </h1>
       </div>
 
       <nav className="header-nav">
@@ -47,7 +46,6 @@ const Header = ({ setActiveScreen }) => {
           <li><button onClick={() => handleNavClick('timeline')}>Timeline</button></li>
           <li><button onClick={() => handleNavClick('team')}>Team</button></li>
           <li><button onClick={() => handleNavClick('guidance')}>Guidance</button></li>
-
           <li><button onClick={() => handleNavClick('partners')}>Partners</button></li>
           <li><button onClick={() => handleNavClick('faq')}>FAQ</button></li>
         </ul>
