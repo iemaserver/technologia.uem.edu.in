@@ -1,6 +1,6 @@
 import React from 'react';
 import './Footer.css';
-import uemLogo from './assets/logo.png';
+import uemLogo from './assets/UEM_LOGO.jpg';
 // Import icons from react-icons
 import { FaInstagram, FaLinkedin, FaDiscord, FaFacebook } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
@@ -32,8 +32,11 @@ const Footer = () => {
         <div className="footer-section">
           <h3>Contacts <span className="japanese-subtitle">連絡先</span></h3>
           <div className="contact-info">
-            <p><strong>Rajeet Ash:</strong> +91 9330515069</p>
-            {/* <p><strong>Alik Agrawala:</strong> 9733502597</p> */}
+            <p><strong>Rajeet Ash:</strong> +91 93305 15069</p>
+            <p><strong>Ananta pathak:</strong> +91 81599 84138</p>
+            <p><strong>Rsnasurya Ghosh:</strong> </p>
+            <p><strong>Sourya Sinha:</strong> </p>
+
             <p className="japanese-text">📞 お問い合わせ</p>
           </div>
         </div>
