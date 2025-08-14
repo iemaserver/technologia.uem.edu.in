@@ -1,0 +1,410 @@
+[
+  {
+    "name": "Ananta Pathak",
+    "japaneseName": "アナンタ・パタク",
+    "position": "Lead Organizer",
+    "photo": "./assets/pfp/8.jpg",
+    "socials": {
+      "instagram": "https://www.instagram.com/_an.anta?igsh=ejJ5b21pa2dnbDRo",
+      "twitter": "https://x.com/_anantapathak?t=LCqpe0qYeks3YdQdIWiy6A&s=08",
+      "linkedin": "https://www.linkedin.com/in/ananta-pathak-ap8?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+    }
+  },
+  {
+    "name": "Rajeet Ash",
+    "japaneseName": "ラジート・アッシュ",
+    "position": "Co-lead Organizer",
+    "photo": "./assets/pfp/33.jpg",
+    "socials": {
+      "instagram": "https://www.instagram.com/r_a_j_e_e_t_",
+      "twitter": "https://x.com/RajeetAsh",
+      "linkedin": "https://www.linkedin.com/in/rajeet-ash"
+    }
+  },
+  {
+    "name": "Ranasurya Ghosh",
+    "japaneseName": "ラナスーリヤ・ゴーシュ",
+    "position": "Co-lead Organizer",
+    "photo": "./assets/pfp/1.jpg",
+    "socials": {
+      "instagram": "https://www.instagram.com/newborn_smoothy",
+      "twitter": "https://x.com/Ranasurya_Ghosh",
+      "linkedin": "https://www.linkedin.com/in/ranasuryaghosh"
+    }
+  },
+  
+  {
+    "name": "Sourya Sinha",
+    "japaneseName": "ソーリャ・シンハ",
+    "position": "Co-lead Organizer",
+    "photo": "./assets/pfp/34.jpg",
+    "socials": {
+      "instagram": "https://www.instagram.com/nothing__seriously/",
+      "twitter": "https://x.com/SouryaSinha4?t=411rZeupI8zCcRZ_Tx60KA&s=09",
+      "linkedin": "https://www.linkedin.com/in/sourya-sinha-5894b629a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+    }
+  },
+  {
+    "name": "Avik Agarwala",
+    "japaneseName": "アヴィク・アガルワラ",
+    "position": "Mentor",
+    "photo": "./assets/pfp/2.jpg",
+    "socials": {
+      "instagram": "https://www.instagram.com/avikagarwala_",
+      "twitter": "https://www.x.com/avikagarwala",
+      "linkedin": "https://www.linkedin.com/in/avikagarwala"
+    }
+  },
+  {
+    "name": "Alik Agarwala",
+    "japaneseName": "アリク・アガルワラ",
+    "position": "Mentor",
+    "photo": "./assets/pfp/3.jpg",
+    "socials": {
+      "instagram": "https://www.instagram.com/alikagarwala",
+      "twitter": "https://www.x.com/alikagarwala",
+      "linkedin": "https://www.linkedin.com/in/alik-agarwala"
+    }
+  },
+  {
+    "name": "Priyanshu Ghosh",
+    "japaneseName": "プリヤンシュ・ゴーシュ",
+    "position": "Mentor",
+    "photo": "./assets/pfp/11.jpg",
+    "socials": {
+      "instagram": "",
+      "twitter": "",
+      "linkedin": "https://www.linkedin.com/in/priyanshugh/"
+    }
+  },
+  {
+    "name": "Jarjis Alam",
+    "japaneseName": "ジャルジス・アラム",
+    "position": "Graphics Lead",
+    "photo": "./assets/pfp/6.jpg",
+    "socials": {
+      "instagram": "https://www.instagram.com/jarjis_alam_/",
+      "twitter": "https://x.com/AlamJarjis",
+      "linkedin": "https://www.linkedin.com/in/jarjis-alam-857555294/"
+    }
+  },
+  {
+    "name": "Trinankur Roy",
+    "japaneseName": "トリナクル・ロイ",
+    "position": "Graphics",
+    "photo": "./assets/pfp/4.jpg",
+    "socials": {
+      "instagram": "https://www.instagram.com/trinankur_roy",
+      "twitter": "https://x.com/TrinankurRoy",
+      "linkedin": "https://www.linkedin.com/in/trinankur-roy-2a6b25227/"
+    }
+  },
+  {
+    "name": "Diptimayee Patra",
+    "japaneseName": "ディプティマイ・パトラ",
+    "position": "Mentor",
+    "photo": "./assets/pfp/10.jpg",
+    "socials": {
+      "instagram": "https://www.instagram.com/diptimayee.__7?igsh=dms2MzZ4bTg4eHA1",
+      "twitter": "https://x.com/Diptimayee7777?t=Cg8qzuXFzANKRxuUabibFQ&s=09",
+      "linkedin": "https://www.linkedin.com/in/diptimayee-patra-90a74a28a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+    }
+  },
+  {
+    "name": "Rupsa Saha",
+    "japaneseName": "ルプサ・サハ",
+    "position": "Graphics",
+    "photo": "./assets/pfp/13.jpg",
+    "socials": {
+      "instagram": "",
+      "twitter": "",
+      "linkedin": "https://www.linkedin.com/in/rupsa-saha-aa6982330?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+    }
+  },
+  {
+    "name": "AISHI MANDAL",
+    "japaneseName": "アイシ・マンダル",
+    "position": "Graphics",
+    "photo": "./assets/pfp/28.jpg",
+    "socials": {
+      "instagram": "https://www.instagram.com/___labyrinthine__?igsh=MWk1dHE5a24xMXMzeg==",
+      "twitter": "",
+      "linkedin": ""
+    }
+  },
+  {
+    "name": "Orni Bera",
+    "japaneseName": "オルニ・ベラ",
+    "position": "Social Media Lead",
+    "photo": "./assets/pfp/14.jpg",
+    "socials": {
+      "instagram": "https://www.instagram.com/akissimp/profilecard/?igsh=Z2duZjBlOXNtZmQw",
+      "twitter": "",
+      "linkedin": ""
+    }
+  },
+  {
+    "name": "Shaili Kumari",
+    "japaneseName": "シャイリ・クマリ",
+    "position": "Social Media",
+    "photo": "./assets/pfp/7.jpg",
+    "socials": {
+      "instagram": "https://www.instagram.com/megha_.here?igsh=MW1nNGsyNGl1ODVnNQ==",
+      "twitter": "",
+      "linkedin": "https://www.linkedin.com/in/shaili-kumari-a0857932b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
+    }
+  },
+  {
+    "name": "Swastik Manna",
+    "japaneseName": "スワスティック・マンナ",
+    "position": "Social Media",
+    "photo": "./assets/pfp/22.jpg",
+    "socials": {
+      "instagram": "https://www.instagram.com/heaven_swastik?igsh=MW45c2FraGlpejVlcQ==",
+      "twitter": "",
+      "linkedin": "https://www.linkedin.com/in/swastik-manna-b09ba3301?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+    }
+  },
+  {
+    "name": "Debolina Singha",
+    "japaneseName": "デボリナ・シンハ",
+    "position": "Social Media",
+    "photo": "./assets/pfp/31.jpg",
+    "socials": {
+      "instagram": "https://www.instagram.com/__._debolina__._?igsh=Z2xyYmt4MGpjNWZi",
+      "twitter": "",
+      "linkedin": "https://www.linkedin.com/in/debolina-singha-861aa1327?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+    }
+  },
+  {
+    "name": "Sourasanta Dutta",
+    "japaneseName": "ソウラサンタ・ダッタ",
+    "position": "Social Media",
+    "photo": "./assets/pfp/37.jpg",
+    "socials": {
+      "instagram": "https://www.instagram.com/its_official_soura_?igsh=YzFsaGFyMGt5OHVm&utm_source=qr",
+      "twitter": "",
+      "linkedin": "https://www.linkedin.com/in/sourasanta-dutta-852345282?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
+    }
+  },
+  {
+    "name": "Pritim Mondal",
+    "japaneseName": "プリティム・モンダル",
+    "position": "Core",
+    "photo": "./assets/pfp/5.jpg",
+    "socials": {
+      "instagram": "https://www.instagram.com/pritimmondall",
+      "twitter": "https://x.com/pritimmondall",
+      "linkedin": "https://www.linkedin.com/in/pritim-mondal-326ba6322?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+    }
+  },
+  {
+    "name": "Sanjib Ghosh",
+    "japaneseName": "サンジブ・ゴーシュ",
+    "position": "Core",
+    "photo": "./assets/pfp/15.jpg",
+    "socials": {
+      "instagram": "https://www.instagram.com/a.lazy_coder?igsh=NnJuOGJnbTJ5NW40",
+      "twitter": "https://x.com/A_lazy_coder404?t=Ga3U24nkpLu13ejxAXUoqA&s=09",
+      "linkedin": "https://www.linkedin.com/in/sanjib-ghosh-754289304"
+    }
+  },
+  {
+    "name": "Romit Hati",
+    "japaneseName": "ロミット・ハティ",
+    "position": "Core",
+    "photo": "./assets/pfp/18.jpg",
+    "socials": {
+      "instagram": "https://www.instagram.com/romit_hati_1.0?igsh=MWxvd2tscnIxbnkzcA==",
+      "twitter": "https://x.com/HatiRomit10424?t=1HcL52s06UHkqj_4OAkQCg&s=09",
+      "linkedin": "https://www.linkedin.com/in/romit-hati-998b91336?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+    }
+  },
+  {
+    "name": "Prathamesh Shaw",
+    "japaneseName": "プラタメシュ・ショウ",
+    "position": "Core",
+    "photo": "./assets/pfp/23.jpg",
+    "socials": {
+      "instagram": "https://www.instagram.com/prathamesh_shaw?igsh=MXcxYjFwOXl4OXF5cA==",
+      "twitter": "",
+      "linkedin": "https://www.linkedin.com/in/prathamesh-shaw-a95a28318?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+    }
+  },
+  {
+    "name": "Abhinav Singh",
+    "japaneseName": "アビナブ・シン",
+    "position": "Core",
+    "photo": "./assets/pfp/27.jpg",
+    "socials": {
+      "instagram": "www.instagram.com/abhinavsinghsikarwar_",
+      "twitter": "",
+      "linkedin": "https://www.linkedin.com/in/abhinav-singh-87146232a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+    }
+  },
+  {
+    "name": "Subham Mondol",
+    "japaneseName": "スバム・モンドル",
+    "position": "Core",
+    "photo": "./assets/pfp/36.jpg",
+    "socials": {
+      "instagram": "https://www.instagram.com/subham_ln/profilecard/?igsh=NzJkc210cHptazBo",
+      "twitter": "",
+      "linkedin": ""
+    }
+  },
+  {
+    "name": "Lokesh Hazra",
+    "japaneseName": "ロケッシュ・ハザラ",
+    "position": "Organiser",
+    "photo": "./assets/pfp/9.jpg",
+    "socials": {
+      "instagram": "https://www.instagram.com/the_beast.lokify?igsh=YWZvbHA0ZnZ5YXd2",
+      "twitter": "https://x.com/Lokeshhazra05?t=Chn4zaygbLBOaXdpkUPXqQ&s=09",
+      "linkedin": "https://www.linkedin.com/in/lokesh-hazra-1b9518379?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+    }
+  },
+  {
+    "name": "Ishika Patra",
+    "japaneseName": "イシカ・パトラ",
+    "position": "Organiser",
+    "photo": "./assets/pfp/16.jpg",
+    "socials": {
+      "instagram": "https://www.instagram.com/eccedentesiast__isha?igsh=MW4ydWJnNHFndzh6Yw==",
+      "twitter": "",
+      "linkedin": "https://www.linkedin.com/in/ishika-patra-8332a9350?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+    }
+  },
+  {
+    "name": "Ashish Gupta",
+    "japaneseName": "アシシュ・グプタ",
+    "position": "Organiser",
+    "photo": "./assets/pfp/17.jpg",
+    "socials": {
+      "instagram": "https://www.instagram.com/_heyy.ashish_?igsh=eTk3c241MmVkNWQ0",
+      "twitter": "",
+      "linkedin": "https://www.linkedin.com/in/ashish-gupta-a3b81a318?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+    }
+  },
+  {
+    "name": "Punya Agarwal",
+    "japaneseName": "プニヤ・アガルワル",
+    "position": "Organiser",
+    "photo": "./assets/pfp/20.jpg",
+    "socials": {
+      "instagram": "https://www.instagram.com/punya_agarwal2005?igsh=OGlxcXZ6MzZsdXZr",
+      "twitter": "",
+      "linkedin": "https://www.linkedin.com/in/punya-agarwal-26ba2a318?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+    }
+  },
+  {
+    "name": "Dipayan Shil",
+    "japaneseName": "ディパヤン・シル",
+    "position": "Organiser",
+    "photo": "./assets/pfp/21.jpg",
+    "socials": {
+      "instagram": "https://www.instagram.com/dipayan__9903?igsh=MXhoY25qeTliaXAxag==",
+      "twitter": "",
+      "linkedin": "https://www.linkedin.com/in/dipayan-shil-410b94336?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+    }
+  },
+  {
+    "name": "Pallav Saha",
+    "japaneseName": "パラブ・サハ",
+    "position": "Organiser",
+    "photo": "./assets/pfp/24.jpg",
+    "socials": {
+      "instagram": "https://www.instagram.com/corrupted.roni?igsh=dXg0M25kbnE4dTQ4",
+      "twitter": "https://x.com/Roni83012359032?t=wVTVF6M0I6fxz7YLihpDPg&s=09",
+      "linkedin": "https://www.linkedin.com/in/pallav-saha-a003b2337?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+    }
+  },
+  {
+    "name": "Mayukh Roy",
+    "japaneseName": "マユク・ロイ",
+    "position": "Organiser",
+    "photo": "./assets/pfp/26.jpg",
+    "socials": {
+      "instagram": "",
+      "twitter": "",
+      "linkedin": "https://www.linkedin.com/in/mayukh-roy-36b4ab31b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+    }
+  },
+  {
+    "name": "Kumar Rishav",
+    "japaneseName": "クマール・リシャブ",
+    "position": "Organiser",
+    "photo": "./assets/pfp/35.jpg",
+    "socials": {
+      "instagram": "singh_ris_av",
+      "twitter": "",
+      "linkedin": ""
+    }
+  },
+  {
+    "name": "Aman Roushan",
+    "japaneseName": "アマン・ロウシャン",
+    "position": "Video Editor",
+    "photo": "./assets/pfp/12.jpg",
+    "socials": {
+      "instagram": "instagram.com/ohfariyan",
+      "twitter": "",
+      "linkedin": ""
+    }
+  },
+  {
+    "name": "Subham Musib",
+    "japaneseName": "スバム・ムシブ",
+    "position": "Branding Lead",
+    "photo": "./assets/pfp/30.jpg",
+    "socials": {
+      "instagram": "_subhammusib_",
+      "twitter": "",
+      "linkedin": "https://www.linkedin.com/in/subham-musib-6b2111339?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app "
+    }
+  },
+  {
+    "name": "Jatin Rauth",
+    "japaneseName": "ジャティン・ラウス",
+    "position": "Decoration",
+    "photo": "./assets/pfp/32.jpg",
+    "socials": {
+      "instagram": "https://www.instagram.com/withonly__jatin?igsh=N2c5YWJpMnF0am92",
+      "twitter": "",
+      "linkedin": ""
+    }
+  },
+  {
+    "name": "Kinjal Dutta",
+    "japaneseName": "キンジャル・ダッタ",
+    "position": "Advisor",
+    "photo": "./assets/pfp/19.jpg",
+    "socials": {
+      "instagram": "https://www.instagram.com/spac3.b0und?igsh=MjdtM2t2ejRxejBi",
+      "twitter": "",
+      "linkedin": "https://www.linkedin.com/in/kinjal-dutta-16975928b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+    }
+  },
+  {
+    "name": "Apabrita Sarkar",
+    "japaneseName": "アパブリタ・サルカル",
+    "position": "Advisor",
+    "photo": "./assets/pfp/29.jpg",
+    "socials": {
+      "instagram": "",
+      "twitter": "",
+      "linkedin": ""
+    }
+  },
+  {
+    "name": "Rajdeep Bannerjee",
+    "japaneseName": "ラジープ・バナージー",
+    "position": "Mentor",
+    "photo": "./assets/pfp/38.jpg",
+    "socials": {
+      "instagram": "https://www.instagram.com/user_r.banerjee?",
+      "twitter": "https://x.com/rajdeep22173?s=21",
+      "linkedin": "https://www.linkedin.com/in/banerjeerajdeep"
+    }
+  }
+]

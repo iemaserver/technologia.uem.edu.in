@@ -47,11 +47,9 @@ import photo34 from './assets/pfp/34.jpg';
 import photo35 from './assets/pfp/35.jpg';
 import photo36 from './assets/pfp/36.jpg';
 import photo37 from './assets/pfp/37.jpg';
-import RANU from './assets/pfp/RANU.jpg';
-
+import photo38 from './assets/pfp/38.jpg';
 const photoMap = {
-    './assets/pfp/1.jpg': RANU,
-
+    './assets/pfp/1.jpg': photo1,
     './assets/pfp/2.jpg': photo2,
     './assets/pfp/3.jpg': photo3,
     './assets/pfp/4.jpg': photo4,
@@ -88,6 +86,7 @@ const photoMap = {
     './assets/pfp/35.jpg': photo35,
     './assets/pfp/36.jpg': photo36,
     './assets/pfp/37.jpg': photo37,
+    './assets/pfp/38.jpg': photo38,
 };
 
 // --- Individual Card Component ---
@@ -168,7 +167,7 @@ const TeamMemberCard = ({ member }) => {
 
 
 // --- Main Team Component ---
-const Team = () => {
+const Guidance = () => {
     const groupedTeams = teamData.reduce((acc, member) => {
         let { position } = member;
         
@@ -188,14 +187,8 @@ const Team = () => {
     }, {});
 
     const sectionOrder = [
-        'Organizing Team',
-        'Core',
-        'Graphics Team',
-        'Social Media Team',
-        'Branding Lead',
-        'Organiser',
-        'Video Editor',
-        'Decoration',
+        'Mentor',
+        'Advisor'
     ];
     
     const orderedGroupedTeams = sectionOrder.reduce((acc, key) => {
@@ -206,16 +199,21 @@ const Team = () => {
     }, {});
 
     return (
-        <Section id="team" title="The Sorcerers">
+        <Section id="team" title="GUIDES">
             <div className="team-container">
                 {Object.entries(orderedGroupedTeams).map(([position, members]) => (
                     <div className="team-section" key={position}>
                         <h2 className="team-position-title">{position}</h2>
-                        <div className="team-row">
-                            {members.map((member, index) => (
-                                <TeamMemberCard key={index} member={member} />
-                            ))}
-                        </div>
+                        <div className="team-row-wrapper">
+    <div className="team-row">
+        {members.map((member, index) => (
+            <TeamMemberCard key={index} member={member} />
+        ))}
+    </div>
+    <div className="scroll-blur left-blur"></div>
+    <div className="scroll-blur right-blur"></div>
+</div>
+
                     </div>
                 ))}
             </div>
@@ -223,4 +221,4 @@ const Team = () => {
     );
 };
 
-export default Team;
+export default Guidance;

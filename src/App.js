@@ -12,9 +12,7 @@ import Timeline from './Timeline';
 import Team from './Team';
 import Partners from './Partners';
 import FAQ from './FAQ';
-import Contact from './Contact';
-import Register from './Register';
-
+import Guidance from './Guidance';
 import './App.css';
 
 function App() {
@@ -33,14 +31,12 @@ function App() {
         return <Timeline />;
       case 'team':
         return <Team />;
+      case 'guidance':
+        return <Guidance />;
       case 'partners':
         return <Partners />;
       case 'faq':
         return <FAQ />;
-      case 'contact':
-        return <Contact />;
-      case 'register':
-        return <Register />;
       case 'home':
       default:
         return <Home />;
@@ -53,7 +49,7 @@ function App() {
         <Loader onLoaded={handleLoadingComplete} />
       ) : (
         <>
-          <CustomCursor />
+          {window.innerWidth > 1024 && <CustomCursor />}
           <InteractiveBackground />
           <ThreeBackground />
           <Header setActiveScreen={setActiveScreen} />

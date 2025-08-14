@@ -43,13 +43,13 @@ const Header = ({ setActiveScreen }) => {
         
         <ul className={isMenuOpen ? 'nav-links active' : 'nav-links'}>
           <li><button onClick={() => handleNavClick('home')}>Home</button></li>
-          <li><button onClick={() => handleNavClick('register')}>Register</button></li>
           <li><button onClick={() => handleNavClick('about')}>About</button></li>
           <li><button onClick={() => handleNavClick('timeline')}>Timeline</button></li>
           <li><button onClick={() => handleNavClick('team')}>Team</button></li>
+          <li><button onClick={() => handleNavClick('guidance')}>Guidance</button></li>
+
           <li><button onClick={() => handleNavClick('partners')}>Partners</button></li>
           <li><button onClick={() => handleNavClick('faq')}>FAQ</button></li>
-          <li><button onClick={() => handleNavClick('contact')}>Contact</button></li>
         </ul>
       </nav>
     </header>

@@ -1,150 +1,210 @@
-/* --- Wrapper with Perspective --- */
-.card-wrapper {
-  perspective: 1200px;
-  will-change: transform;
+/* --- Main Container for Vertical Scroll --- */
+.team-container {
+    width: 100%;
+    padding: 20px 0;
+    overflow-y: auto; /* Allows vertical scrolling for the whole page */
 }
 
-/* --- Grid Layout --- */
-.team-grid-new {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 60px;
-  width: 100%;
-  max-width: 1200px;
-  margin: 1px auto 0;
+/* --- Section for Each Role (e.g., Mentors, Graphics) --- */
+.team-section {
+    margin-bottom: 60px;
+}
+
+.team-position-title {
+    font-family: 'Ditty', sans-serif;
+    font-size: 2.5em;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 20px;
+    text-shadow: 0 0 8px rgba(233, 69, 96, 0.7);
+}
+
+/* --- Row for Horizontal Scrolling on Desktop --- */
+.team-row {
+    display: flex;
+    flex-direction: row; /* Default for desktop */
+    overflow-x: auto; /* Enables horizontal scroll */
+    padding: 20px 20px 40px 20px; /* Add padding for scrollbar and breathing room */
+    gap: 40px;
+    /* Hide scrollbar for a cleaner look */
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.team-row::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, and Opera */
+}
+
+/* --- Individual Card Wrapper --- */
+.card-wrapper {
+    flex: 0 0 350px; /* Prevent cards from shrinking, set a fixed base width */
+    perspective: 1200px;
+    will-change: transform;
 }
 
 /* --- Card Styling --- */
 .team-card-new {
-  aspect-ratio: 3 / 4;
-  position: relative;
-  transform-style: preserve-3d;
-  transition: transform 0.3s ease;
-  will-change: transform;
+    aspect-ratio: 3 / 4;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.3s ease;
+    will-change: transform;
 }
 
-/* --- Background with Parallax Movement --- */
+/* ... (keep all your existing .card-background, .card-border, .card-content-new, etc. styles) ... */
+
 .card-background {
-  position: absolute;
-  inset: 0;
-  background-size: cover;
-  background-position: center;
-  border-radius: 25px;
-  z-index: 1;
-  filter: brightness(0.85) contrast(1.1);
-  transform: translateZ(-1px) scale(1.03);
-  transition: transform 0.3s ease;
-  will-change: transform;
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    border-radius: 25px;
+    z-index: 1;
+    filter: brightness(0.85) contrast(1.1);
+    transform: translateZ(-1px) scale(1.03);
+    transition: transform 0.3s ease;
+    will-change: transform;
 }
 
 .card-border {
-  position: absolute;
-  inset: -2px;
-  border-radius: 22px;
-  /* background: linear-gradient(135deg, #ff00ff, #e94560, #ff6600); */
-  z-index: 0;
-  padding: 6px;
-  filter: blur(6px);
+    position: absolute;
+    inset: -2px;
+    border-radius: 22px;
+    z-index: 0;
+    padding: 6px;
+    filter: blur(6px);
 }
 
 .card-content-new {
-  position: absolute;
-  inset: 15px;
-  border-radius: 16px;
-  z-index: 2;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
+    position: absolute;
+    inset: 15px;
+    border-radius: 16px;
+    z-index: 2;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
 }
 
-/* --- Top Text --- */
 .top-text {
-  width: 100%;
-  text-align: center;
-  position: relative;
+    width: 100%;
+    text-align: center;
+    position: relative;
 }
 
 .member-position-new {
-  font-family: 'Ditty', sans-serif;
-  font-size: 2.2em;
-  color: #fff;
-  text-shadow: 0 0 6px #ff00ff, 0 0 12px #e94560;
-  margin: 0;
-  letter-spacing: 0.5px;
+    font-family: 'Ditty', sans-serif;
+    font-size: 2.2em;
+    color: #fff;
+    text-shadow: 0 0 6px #ff00ff, 0 0 12px #e94560;
+    margin: 0;
+    letter-spacing: 0.5px;
 }
 
-.japanese-seal {
-  position: absolute;
-  top: -12px;
-  right: 0;
-  font-family: 'Yuji Syuku', serif;
-  color: rgba(255, 255, 255, 0.6);
-  font-size: 0.8em;
-  letter-spacing: 0.1em;
-}
-
-/* --- Circular Image --- */
 .photo-container-new {
-  width: 50%;
-  aspect-ratio: 1/1;
-  border-radius: 50%;
-  border: 4px solid rgba(255, 255, 255, 0.85);
-  box-shadow: 0 0 25px rgba(255, 0, 255, 0.4);
-  overflow: hidden;
-  margin: 0px auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    width: 65%;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    border: 4px solid rgba(255, 255, 255, 0.85);
+    box-shadow: 0 0 25px rgba(255, 0, 255, 0.4);
+    overflow: hidden;
+    margin: 0px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .photo-container-new img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
-/* --- Name --- */
 .bottom-text {
-  text-align: center;
+    text-align: center;
 }
 
 .member-name-new {
-  font-family: 'Ditty', sans-serif;
-  font-size: 2.0em;
-  color: #fff;
-  margin: 0;
-  text-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
-  letter-spacing: 2px;
+    font-family: 'Ditty', sans-serif;
+    font-size: 1.8em;
+    color: #fff;
+    margin: 0;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
+    letter-spacing: 2px;
 }
-
 
 .member-name-japanese {
-  font-family: 'Naganoshi', sans-serif;
-  color: rgba(255, 255, 255, 0.75);
-  font-size: 1.2em;
-  margin-top: 5px;
+    font-family: 'Naganoshi', sans-serif;
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 1.2em;
+    margin-top: 5px;
 }
 
-/* --- Social Icons --- */
 .socials-new {
-  position: absolute;
-  bottom: -10px;
-  left: 5px;
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
+    position: absolute;
+    bottom: -10px;
+    left: 5px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
 }
 
 .socials-new a {
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 1.1em;
-  transition: color 0.3s, transform 0.3s;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.1em;
+    transition: color 0.3s, transform 0.3s;
 }
 
 .socials-new a:hover {
-  color: rgba(255, 0, 255, 0.9);
-  transform: scale(1.4);
-  
+    color: rgba(255, 0, 255, 0.9);
+    transform: scale(1.4);
+}
+
+/* Gradient blur at both ends for horizontal scroll */
+.team-row {
+    position: relative; /* Required for absolute positioning of gradients */
+}
+
+.team-row::before,
+.team-row::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 60px; /* Adjust blur width */
+    height: 100%;
+    pointer-events: none; /* So gradients don't block scrolling */
+    z-index: 5;
+}
+
+
+
+/* Remove the blur when on mobile vertical layout */
+@media (max-width: 768px) {
+    .team-row::before,
+    .team-row::after {
+        display: none;
+    }
+}
+
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 768px) {
+    .team-row {
+        flex-direction: column; /* Stack cards vertically */
+        overflow-x: hidden; /* Disable horizontal scroll */
+        align-items: center; /* Center cards in the column */
+        padding: 20px 0;
+        gap: 50px; /* Increase gap for vertical stacking */
+    }
+
+    .card-wrapper {
+        flex: 0 0 auto; /* Reset flex property for vertical layout */
+        width: 90%; /* Allow cards to take up most of the width */
+        max-width: 350px; /* But not more than 350px */
+    }
+
+    .team-position-title {
+        font-size: 2em;
+    }
 }

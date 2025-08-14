@@ -1,7 +1,6 @@
 /* Main container for the canvas-based cursor */
 .image-cursor {
   position: fixed;
-  /* UPDATED: Use a fixed size for the visible cursor area */
   width: 15%;
   height: 15%;
   pointer-events: none;
@@ -15,4 +14,11 @@
   width: 100%;
   height: 100%;
   display: block;
+}
+
+/* Disable custom cursor on mobile/tablet */
+@media (max-width: 1024px) {
+  .image-cursor {
+    display: none !important;
+  }
 }
