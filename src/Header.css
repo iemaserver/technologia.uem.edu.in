@@ -6,28 +6,25 @@
   justify-content: space-between;
   align-items: center;
   border-bottom: 2px solid #0f3460;
-  width: 92%;
+  width: 100%;
   position: fixed;
   top: 0;
   left: 0;
   z-index: 1000;
-  height: 60px;
+  /* --- FIX: Changed from 10% to a fixed pixel height --- */
+  height: 80px; 
 }
 
 /* Wrapper for left-aligned items */
 .header-left {
   display: flex;
   align-items: center;
-  gap: 15px; /* Adjust gap between logo, animation, and title */
+  gap: 15px;
 }
 
 /* Logo and Title Styling */
-.header-logo,
-.header-title {
-  cursor: pointer;
-}
-
 .header-logo {
+  cursor: pointer;
   height: 100%;
   display: flex;
   align-items: center;
@@ -40,20 +37,18 @@
   gap: 10px;
 }
 
-/* ✅ Equal-sized logos */
 .logo-image {
-  height: 45px;
-  width: 45px; /* Fixed width for uniform size */
+  height: 50px; /* Adjusted size for the new header height */
+  width: 50px;
   object-fit: contain;
 }
 
-/* Optional fine-tune for IEM logo */
 #iemlogo {
-  padding: 2px; /* adjust to visually match others */
+  padding: 2px;
 }
 
 .logo-divider {
-  height: 35px;
+  height: 40px;
   width: 1px;
   background-color: #ffffff;
   margin: 0 5px;
@@ -115,7 +110,7 @@
   }
   .nav-menu-icon.menu-is-open {
     position: fixed;
-    top: 20px;
+    top: 25px; /* Adjusted for new header height */
     right: 4%;
     color: #ffffff;
   }

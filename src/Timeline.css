@@ -64,7 +64,9 @@
   background-color: rgba(233, 69, 96, 0.4);
   left: 20px;
   transform: translateX(-50%);
-  height: calc(100% - 190px);
+  /* --- FIX: Changed height to a 'top' and 'bottom' value --- */
+  /* This makes the line stretch from 40px from the top to 40px from the bottom */
+  bottom: 40px;
 }
 
 .timeline-item {
@@ -156,7 +158,9 @@
     width: 4px;
     left: 50%;
     top: 40px;
+    /* Restore original height calculation for desktop */
     height: calc(100% - 190px);
+    bottom: auto; /* Unset the bottom property */
   }
 
   /* Alternating items */

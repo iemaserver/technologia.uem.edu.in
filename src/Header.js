@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
 import { FiMenu, FiX } from 'react-icons/fi';
 import './Header.css';
-import logo from './assets/logo.png'; // Your static logo
-import tlogo from './assets/technologia_logo.png'; // Your static logo
-import iemLogo from './assets/iem_logo.png'; // Your static logo
-
-// import AnimatedLogo from './AnimatedLogo'; // Import the new animated logo
+import logo from './assets/logo.png';
+import tlogo from './assets/technologia_logo.png';
+import iemLogo from './assets/iem_logo.png';
 
 const Header = ({ setActiveScreen }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -13,11 +11,12 @@ const Header = ({ setActiveScreen }) => {
   const handleNavClick = (screen) => {
     setActiveScreen(screen);
     setIsMenuOpen(false);
+    // --- FIX: Scroll to the top of the page on navigation ---
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
     <header className="app-header">
-      {/* Wrapper for all left-aligned items */}
       <div className="header-left">
         <div className="header-logo" onClick={() => handleNavClick('home')}>
           <div className="logo-container">
@@ -28,8 +27,6 @@ const Header = ({ setActiveScreen }) => {
             <img src={tlogo} alt="Technologia Logo" className="logo-image" />
           </div>
         </div>
-        {/* The new animated logo component */}
-        {/* <AnimatedLogo /> */}
       </div>
 
       <nav className="header-nav">

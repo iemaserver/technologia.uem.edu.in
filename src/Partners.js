@@ -2,20 +2,13 @@ import React, { useEffect, useRef } from 'react';
 import Section from './Section';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-// import {
-//   FaStar, FaUtensils, FaBookOpen, FaTshirt, FaHeart, FaGraduationCap, FaGamepad
-// } from 'react-icons/fa';
 import './Partner.css';
-import notzero from './assets/not-zero-blue.png'
-
-// Import your sticker images from the assets folder
-// import sticker1 from './assets/sticker1.png';
-// import sticker2 from './assets/sticker2.png';
-
+import notzero from './assets/not-zero-blue.png';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const Partners = () => {
+// 1. Accept the prop, defaulting to true for standalone use
+const Partners = ({ animationsEnabled = true }) => {
   const rootRef = useRef(null);
   const partnersData = {
     community: [
@@ -38,13 +31,19 @@ const Partners = () => {
     ],
     technical: [
       { name: 'Not Zero', logo: notzero },
-
     ]
   };
 
   useEffect(() => {
+    // 2. Check the prop before running any animations
+    if (!animationsEnabled) {
+      // If animations are disabled, make sure elements are instantly visible
+      gsap.set('.partner-card', { opacity: 1, scale: 1, y: 0 });
+      return; // Exit the effect early
+    }
+
     const ctx = gsap.context(() => {
-      // Animate floating stickers with a more natural motion
+      // Animate floating stickers
       gsap.to('.floating-sticker', {
         y: (i) => (i % 2 === 0 ? -20 : 20),
         rotation: (i) => (i % 2 === 0 ? 8 : -8),
@@ -99,7 +98,7 @@ const Partners = () => {
     }, rootRef);
 
     return () => ctx.revert();
-  }, []);
+  }, [animationsEnabled]); // 3. Add prop to dependency array
 
   const renderPartners = (category) => (
     <div className="partner-category" key={category}>
@@ -114,7 +113,14 @@ const Partners = () => {
             rel="noopener noreferrer"
           >
             <div className="shine-effect"></div>
-            <img src={partner.logo} alt={partner.name} />
+            <img 
+              src={partner.logo} 
+              alt={partner.name}
+              // Add optimizations for mobile performance
+              loading="lazy"
+              width="150"
+              height="80"
+            />
             <span className="partner-name">{partner.name}</span>
           </a>
         ))}
@@ -133,12 +139,12 @@ const Partners = () => {
         </div>
 
         <div className="partners-container">
+          {/* You can uncomment these as you add more partners */}
           {/* {renderPartners('Community')}
           {renderPartners('Food')}
           {renderPartners('Knowledge')}
           {renderPartners('Merchandise')} */}
           {renderPartners('Technical')}
-
         </div>
       </div>
     </Section>

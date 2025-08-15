@@ -53,7 +53,7 @@ import photo39 from './assets/pfp/39.jpg';
 import photo40 from './assets/pfp/40.jpg';
 
 
-import RANU from './assets/pfp/RANU.jpg';
+import RANU from './assets/pfp/1.jpg';
 // import ScrollingRow from './ScrollingRow.js';
 
 const photoMap = {

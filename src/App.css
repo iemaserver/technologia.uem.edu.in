@@ -33,7 +33,21 @@ html, body {
   z-index: -1;
 }
 
+/* In App.css */
 
-/* The App-body no longer needs specific padding or text styles,
-   as the new Section component handles its own styling. */
+.App {
+  /* This ensures the main container takes up the full width */
+  width: 100%; 
 
+  /* This makes the app at least as tall as the screen */
+  min-height: 100vh; 
+  
+  /* This helps position the footer correctly on pages with little content */
+  display: flex;
+  flex-direction: column;
+}
+
+/* This makes the main content area flexible */
+.App-body {
+  flex: 1 0 auto;
+}
