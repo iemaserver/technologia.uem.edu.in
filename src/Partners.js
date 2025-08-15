@@ -30,75 +30,79 @@ const Partners = ({ animationsEnabled = true }) => {
       { name: 'Neko Neko', logo: 'https://i.imgur.com/VgLQqHh.png', url: '#' }
     ],
     technical: [
-      { name: 'Not Zero', logo: notzero },
+      { name: 'Not Zero', logo: notzero,url: '#' }
     ]
   };
 
-  useEffect(() => {
-    // 2. Check the prop before running any animations
-    if (!animationsEnabled) {
-      // If animations are disabled, make sure elements are instantly visible
-      gsap.set('.partner-card', { opacity: 1, scale: 1, y: 0 });
-      return; // Exit the effect early
-    }
+useEffect(() => {
+  if (!animationsEnabled) {
+    gsap.set(".partner-card", { opacity: 1, scale: 1, y: 0 });
+    return;
+  }
 
-    const ctx = gsap.context(() => {
-      // Animate floating stickers
-      gsap.to('.floating-sticker', {
+  const ctx = gsap.context(() => {
+    // Floating stickers animation — safe check
+    const stickers = gsap.utils.toArray(".floating-sticker");
+    if (stickers.length) {
+      gsap.to(stickers, {
         y: (i) => (i % 2 === 0 ? -20 : 20),
         rotation: (i) => (i % 2 === 0 ? 8 : -8),
         duration: 6,
-        ease: 'sine.inOut',
+        ease: "sine.inOut",
         repeat: -1,
         yoyo: true,
       });
+    }
 
-      // Staggered entrance animation for each category
-      gsap.utils.toArray('.partner-category').forEach((category) => {
-        const cards = category.querySelectorAll('.partner-card');
-        gsap.from(cards, {
-          scrollTrigger: {
-            trigger: category,
-            start: 'top 85%',
-            toggleActions: 'play none none none',
-          },
-          opacity: 0,
-          scale: 0.9,
-          y: 40,
-          duration: 0.8,
-          stagger: 0.15,
-          ease: 'power3.out',
-        });
+    // Staggered partner category animations
+    gsap.utils.toArray(".partner-category").forEach((category) => {
+      const cards = category.querySelectorAll(".partner-card");
+      if (!cards.length) return;
+
+      gsap.from(cards, {
+        scrollTrigger: {
+          trigger: category,
+          start: "top 85%",
+          toggleActions: "play none none none",
+        },
+        opacity: 0,
+        scale: 0.9,
+        y: 40,
+        duration: 0.8,
+        stagger: 0.15,
+        ease: "power3.out",
+      });
+    });
+
+    // 3D hover tilt effect
+    gsap.utils.toArray(".partner-card").forEach((card) => {
+      const logo = card.querySelector("img");
+      const name = card.querySelector(".partner-name");
+      const shine = card.querySelector(".shine-effect");
+
+      card.addEventListener("mouseleave", () => {
+        gsap.to(card, { rotationX: 0, rotationY: 0, duration: 0.6, ease: "power2.out" });
+        gsap.to([logo, name], { transform: "translateZ(0px)", duration: 0.6, ease: "power2.out" });
+        if (shine) gsap.to(shine, { x: "-150%", y: "-150%", duration: 0.6, ease: "power2.out" });
       });
 
-      // 3D tilt hover effect for each card
-      gsap.utils.toArray('.partner-card').forEach((card) => {
-        const logo = card.querySelector('img');
-        const name = card.querySelector('.partner-name');
-        const shine = card.querySelector('.shine-effect');
+      card.addEventListener("mousemove", (e) => {
+        const { left, top, width, height } = card.getBoundingClientRect();
+        const x = e.clientX - left;
+        const y = e.clientY - top;
+        const rotateX = gsap.utils.mapRange(0, height, -10, 10)(y);
+        const rotateY = gsap.utils.mapRange(0, width, 10, -10)(x);
 
-        card.addEventListener('mouseleave', () => {
-          gsap.to(card, { rotationX: 0, rotationY: 0, duration: 0.6, ease: 'power2.out' });
-          gsap.to([logo, name], { transform: 'translateZ(0px)', duration: 0.6, ease: 'power2.out' });
-          gsap.to(shine, { x: '-150%', y: '-150%', duration: 0.6, ease: 'power2.out' });
-        });
-
-        card.addEventListener('mousemove', (e) => {
-          const { left, top, width, height } = card.getBoundingClientRect();
-          const x = e.clientX - left;
-          const y = e.clientY - top;
-          const rotateX = gsap.utils.mapRange(0, height, -10, 10)(y);
-          const rotateY = gsap.utils.mapRange(0, width, 10, -10)(x);
-
-          gsap.to(card, { rotationX: rotateX, rotationY: rotateY, duration: 0.6, ease: 'power2.out' });
-          gsap.to([logo, name], { transform: 'translateZ(40px)', duration: 0.6, ease: 'power2.out' });
-          gsap.to(shine, { x: x - width / 2, y: y - height / 2, duration: 0.6, ease: 'power2.out' });
-        });
+        gsap.to(card, { rotationX: rotateX, rotationY: rotateY, duration: 0.6, ease: "power2.out" });
+        gsap.to([logo, name], { transform: "translateZ(40px)", duration: 0.6, ease: "power2.out" });
+        if (shine) gsap.to(shine, { x: x - width / 2, y: y - height / 2, duration: 0.6, ease: "power2.out" });
       });
-    }, rootRef);
+    });
+  }, rootRef);
 
-    return () => ctx.revert();
-  }, [animationsEnabled]); // 3. Add prop to dependency array
+  return () => ctx.revert();
+}, [animationsEnabled]);
+// 3. Add prop to dependency array
 
   const renderPartners = (category) => (
     <div className="partner-category" key={category}>
